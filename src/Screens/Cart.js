@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { Container } from 'native-base';
-import CartHeader from '../Components/CartHeader';
-
+import { Text, View, ScrollView } from 'react-native';
+import CartHeader from '../Components/Header/CartHeader';
 
 class Cart extends Component {
     render() {
         return(
-            <Container>
+            <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
                 <CartHeader />
-                <View>
-                    <Text style={{top:40}}>Ini Cart</Text>
-                </View>
-            </Container> 
+                <ScrollView style={{backgroundColor:'#FFF'}}>
+                    <Text style={{top:40}}>InI Cart</Text>
+                </ScrollView>
+             </View> 
         )
     }
 }
