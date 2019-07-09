@@ -4,6 +4,8 @@ import Home from './src/Screens/Home';
 import Feed from './src/Screens/Feed';
 import Cart from './src/Screens/Cart';
 import Account from './src/Screens/Account';
+import Profile from './src/Screens/Profile';
+import Shop from './src/Screens/Shop';
 
 const AppDrawerNavigator = createBottomTabNavigator({
   Home: { screen: Home },
