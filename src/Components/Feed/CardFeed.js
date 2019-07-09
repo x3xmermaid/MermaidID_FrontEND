@@ -3,6 +3,7 @@ import {Text,View,ScrollView,FlatList,TouchableOpacity} from 'react-native';
 import {Card, Image,Button} from 'react-native-elements';
 import {FeedData} from '../../Assets/dummy';
 import CardProduct from '../CardProduct';
+//import FeedHeader from '../Header/FeedHeader';
 
 
 class ViewCard extends Component {
@@ -46,11 +47,14 @@ class ViewCard extends Component {
     
     render(){
         return(
+        <View> 
+            {/* <FeedHeader/> */}
             <View style={{flex:1,flexDirection:'column',backgroundColor:'#FFF'}}>
           <FlatList
           data={FeedData}
           renderItem={this.renderItem}
           />
+          </View>
           </View>
         )
     }
