@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 class Account extends Component {
     render() {
         return(
-            <Text>Ini Account</Text>
+            <View>
+                <View>
+                    <Text style={{top:40}}>Ini Account</Text>
+                </View>
+            </View>
         )
     }
 }

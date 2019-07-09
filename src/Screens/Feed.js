@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import FeedHeader from '../Components/Header/FeedHeader';
 
 class Feed extends Component {
     render() {
         return(
-            <Text>Ini Feed</Text>
+            <View>
+                <FeedHeader />
+                <View>
+                    <Text style={{top:60}}>Ini Feed</Text>
+                </View>
+            </View>
         )
     }
 }
