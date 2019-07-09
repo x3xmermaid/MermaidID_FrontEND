@@ -148,3 +148,45 @@ export const categoryHorizontal=[
         image: 'https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/store-circle-green-512.png'
     },
 ]
+
+export const FeedData =[
+    {
+        id               : 1,
+        accountName      : 'Digital Alliance',
+        datetime         : 'May 15 at 11:21',
+        profilePhoto     : 'https://ecs7.tokopedia.net/img/cache/215-square/shops-1/2017/9/19/2343655/2343655_231ad9ac-3c01-4708-a734-6825745ffdb4.jpg',
+        post             : 'Cek Promo Terbaru dari Digital Alliance #RamadanEkstra #LebihUntung',
+        postedPhoto      : 'https://ecs7.tokopedia.net/img/cache/700/attachment/2019/5/15/212310378c25055f-6909-44db-a9a4-5da2b0f592ca1557894092076/212310378c25055f-6909-44db-a9a4-5da2b0f592ca1557894092076_5a40f3af-081e-405b-b383-bffa706aab76.jpg',
+        liked            : 1,
+        comment          : 3,
+        productPhoto     : 'https://ecs7.tokopedia.net/img/cache/500-square/product-1/2018/3/19/21231037/21231037_2f9ba1c1-2d0d-49e1-aa45-5f5544e62421_800_800.jpg',
+        productPrice     : '5.500.000',
+        productTitle      : 'Digital Alliance GeForce GTX 1070TI Super JetStrom bla bla'
+    },
+    {
+        id               : 2,
+        accountName      : 'Raisa Adriana',
+        datetime         : 'May 14 at 18:21',
+        profilePhoto     : 'https://ecs7.tokopedia.net/img/cache/100-square/user-1/2019/4/15/57525329/57525329_24e26b95-d11a-41a9-8c1d-0603a5601bbc.jpg',
+        post             : 'Does anyone notice my fake eyelashes? Nope? Yes, because it look so nice',
+        postedPhoto      : 'https://ecs7.tokopedia.net/img/cache/700/attachment/2019/5/6/57525329/57525329_4e91fd6f-c2f3-4a67-bb60-f46f6e989040.png',
+        liked            : 2,
+        comment          : 2,
+        productPhoto     : 'https://ecs7.tokopedia.net/img/cache/200-square/product-1/2018/11/14/11467296/11467296_bcb1a123-b0f8-4757-a854-10f9171cea27_1000_1000',
+        productPrice     : '66.000',
+        productTitle      : 'Blink Charm Eyelashes Natural Flair #1 - 2 Pairs'
+    },
+    {
+        id               : 3,
+        accountName      : 'Nestle Indonesia',
+        datetime         : 'May 14 at 10:20',
+        profilePhoto     : 'https://ecs7.tokopedia.net/img/cache/215-square/shops-1/2018/5/11/2923486/2923486_6ffe52a2-9b94-45d6-988d-98b0b91f4ee3.jpg',
+        post             : 'Sambut Bulan Berkah. Beli 3 Pcs Lactogrow 750g sekarang, dapatkan voucher',
+        postedPhoto      : 'https://ecs7.tokopedia.net/img/cache/700/attachment/2019/5/14/27039034e74b1df0-1cde-4474-9b36-96cc3d7bb46e1557809404680/27039034e74b1df0-1cde-4474-9b36-96cc3d7bb46e1557809404680_05f24607-a804-4a4f-bc13-40dabcbf4ba5.jpg',
+        liked            : 1,
+        comment          : 2,
+        productPhoto     : 'https://ecs7.tokopedia.net/img/cache/500-square/product-1/2019/4/23/27039034/27039034_67b2e60c-7a0d-41ae-88e1-afe4bbea27e8_600_600.jpg',
+        productPrice     : '297.000',
+        productTitle      : ''
+    }
+]
