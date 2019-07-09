@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import { Container } from 'native-base';
+import CartHeader from '../Components/CartHeader';
+
 
 class Cart extends Component {
     render() {
         return(
-            <Text>Ini Cart</Text>
+            <Container>
+                <CartHeader />
+                <View>
+                    <Text style={{top:40}}>Ini Cart</Text>
+                </View>
+            </Container> 
         )
     }
 }
