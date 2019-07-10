@@ -22,7 +22,7 @@ class CardProduct extends Component {
                 borderColor:'transparent'
                 }}>
                     <Text style={styles.ProductNameStyle} numberOfLines={2}>{this.props.title}</Text>
-                    <Text style={styles.PriceTextStyle}>Rp {this.props.price}</Text>
+                   <Text style={styles.PriceTextStyle}>Rp {this.props.price}</Text>
                     <View style={{marginLeft:3,flexDirection:'row'}}>
                     <Rating
                      type='star'

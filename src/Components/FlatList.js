@@ -23,7 +23,7 @@ class CardFlatList extends Component {
         return(
             <View style={{flex:1,flexDirection:'row',alignContent:'flex-start'}}>
             <FlatList
-            data={Product}
+            data={Product.filter(products => products.id !== 0)}
             renderItem={this.renderItem}
             numColumns={2}
             keyExtractor={this._keyExtractor}

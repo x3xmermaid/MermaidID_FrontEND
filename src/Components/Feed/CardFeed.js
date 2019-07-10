@@ -3,6 +3,7 @@ import {Text,View,ScrollView,FlatList,TouchableOpacity} from 'react-native';
 import {Card, Image,Button} from 'react-native-elements';
 import {FeedData} from '../../Assets/dummy';
 import CardProduct from '../CardProduct';
+import Icon from 'react-native-vector-icons/FontAwesome';
 //import FeedHeader from '../Header/FeedHeader';
 
 
@@ -10,7 +11,7 @@ class ViewCard extends Component {
     
     renderItem = ({item,index}) => (
         
-        <View style={{margin:15}}>
+        <View style={{margin:15}} key={item.id}>
         <View style={{flexDirection:'row',paddingTop:10}}>
         <Image
         source={{uri:item.profilePhoto}}
@@ -37,7 +38,11 @@ class ViewCard extends Component {
         imageStyle={{width:'100%',height:300,overflow:'hidden',borderRadius:10}}
         containerStyle={{width:'90%',borderColor:'#FFF',borderWidth:0}}
         >
-        <View style={{height:100,width:150}}>
+        <View style={{height:50,width:'90%'}}>
+            <Text numberOfLines={1}>{item.post}</Text>
+            <TouchableOpacity>
+            <Text style={{color:'#4AB851'}}>Read More</Text>
+            </TouchableOpacity>
         </View>
         </Card>
         </View>
