@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, TextInput, StyleSheet, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
+//import FeedCard from '../Feed/CardFeed';
 
 class FeedHeader extends Component {
     render() {
         return(
-            <View style={styles.header}>
+                 <View style={styles.header}>
                 <View style={styles.headerComponent}>
                     <View style={{flex:7, flexDirection: 'column', alignItems: "center"}}>
                         <View>
@@ -43,6 +44,8 @@ class FeedHeader extends Component {
                     </View>
                 </View>
             </View>
+            
+           
         )
     }
 }

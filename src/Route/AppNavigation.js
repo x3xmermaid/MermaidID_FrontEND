@@ -6,6 +6,7 @@ import Home from '../Screens/Home';
 import Feed from '../Screens/Feed';
 import Cart from '../Screens/Cart';
 import Account from '../Screens/Account';
+import Profile from '../Screens/Profile';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
@@ -13,7 +14,7 @@ const BottomNavigation = createBottomTabNavigator(
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
-		Account: Account
+		Account: Profile
 	},
 	{
 		defaultNavigationOptions: ({navigation}) => ({
