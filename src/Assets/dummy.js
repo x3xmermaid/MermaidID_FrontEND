@@ -1,5 +1,13 @@
 export const Product=[
     {
+    id:0,
+    title:'',
+    price:'',
+    image:'',
+    rating:0,
+    userRated:0
+    },
+    {
     id:1,
     title:'Ikan cupang super',
     price:'180.000',
@@ -68,7 +76,7 @@ export const Product=[
     title:'Kura kura ngeGym',
     price:'30.000',
     image:'https://upload.wikimedia.org/wikipedia/id/thumb/d/d7/Group_04.jpg/210px-Group_04.jpg',
-    rating:4,
+    rating:5,
     userRated:17
     },
     {
@@ -190,3 +198,4 @@ export const FeedData =[
         productTitle      : ''
     }
 ]
+export const wishlistdata=[1,2,4,6,7]

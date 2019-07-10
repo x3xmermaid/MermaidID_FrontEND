@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import {createAppContainer, createBottomTabNavigator ,createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from '../Screens/Home';
 import Feed from '../Screens/Feed';
 import Cart from '../Screens/Cart';
 import Account from '../Screens/Account';
 import Profile from '../Screens/Profile';
-import Login from '../Screens/Login';
+import Wishlist from '../Screens/Wishlist';
+import HomeHeader from '../Components/Header/HomeHeader';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
@@ -50,4 +51,18 @@ const BottomNavigation = createBottomTabNavigator(
 	}
 );
 
-export default createAppContainer(BottomNavigation);
+const RootNavigator = createStackNavigator(
+	{
+		Home : BottomNavigation,
+		Wishlist: Wishlist
+		
+	},
+	{
+		
+		mode:'modal',
+		headerMode:'none',
+
+	}
+)
+
+export default createAppContainer(RootNavigator);
