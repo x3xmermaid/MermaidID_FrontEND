@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-class HomeHeader extends Component {
+class ProductHeader extends Component {
     render() {
         return(
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
-                    <View style={{flex:7}}>
-                        <TextInput placeholder='search...' style={styles.searchBar}/>
-                    </View> 
-                    <View style={styles.iconList}>
+                    <View style={{flex:2}}>
+                        <TouchableOpacity style={{alignItems:"flex-start", left:15}}>
+                            <Icon type='antdesign' name='arrowleft' color='#9fa6b0'/>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{flex:1, flexDirection:'row'}}>
                         <View style={{flex:1}}>
                             <TouchableOpacity>
-                                <Icon size={25} color='#9fa6b0' type='entypo' name='heart'/>
+                                <Icon type='fontisto' name='share' color='#9fa6b0'/>
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1}}>
                             <TouchableOpacity>
-                                <Icon size={25} color='#9fa6b0' type='entypo' name='mail'/>
+                                <Icon type='feather' name='shopping-cart' color='#9fa6b0'/>
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1}}>
                             <TouchableOpacity>
-                                <Icon size={25} color='#9fa6b0' type="font-awesome" name='bell'/>
+                                <Icon type='entypo' name='dots-three-vertical' color='#9fa6b0'/>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -48,25 +50,11 @@ const styles = StyleSheet.create({
         shadowRadius: 6.27
     },
     headerComponent: {
-        flex:1,
+        flex:2,
         flexDirection:'row',
         justifyContent: 'space-around',
         alignItems:'center'
-    },
-    searchBar : {
-        borderRadius: 5,
-        left: 15,
-        width: 225,
-        height: 36,
-        backgroundColor: '#f6f6f6',
-        fontSize: 15
-    },
-    iconList: {
-        flex:3,
-        justifyContent: 'space-around',
-        flexDirection:"row",
-        padding:10
     }
 })
 
-export default HomeHeader;
+export default ProductHeader;

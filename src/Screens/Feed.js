@@ -7,9 +7,6 @@ class Feed extends Component {
         return(
             <View>
                 <FeedHeader />
-                <View>
-                    <Text style={{top:60}}>Ini Feed</Text>
-                </View>
             </View>
         )
     }

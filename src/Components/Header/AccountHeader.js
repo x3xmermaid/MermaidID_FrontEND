@@ -2,42 +2,37 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, TextInput, StyleSheet, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-class FeedHeader extends Component {
+class AccountHeader extends Component {
     render() {
         return(
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
                     <View style={{flex:7, flexDirection: 'column', alignItems: "center"}}>
                         <View>
-                            <TextInput placeholder='search...' style={styles.searchBar}/>
+                            <Text style={styles.account}>Akun Saya</Text>
                         </View>
-                        <View style={{flexDirection: 'row', padding:20, right: 55, top: 10}}>
-                            <View>
+                        <View style={{flexDirection: 'row', padding:20, right: 55, top: 12}}>
+                            <View style={{right: 20}}>
                                 <TouchableOpacity>
-                                    <Text>My Feed</Text>
+                                    <Text>Beli</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{left:13}}>
                                 <TouchableOpacity>
-                                    <Text>Explore</Text>
+                                    <Text>Jual</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
                     </View> 
                     <View style={styles.iconList}>
-                        <View style={{flex:1}}>
+                        <View style={{flex:1.5}}>
                             <TouchableOpacity>
-                                <Icon size={25} color='#9fa6b0' type='entypo' name='heart'/>
+                                <Icon size={22} color='#9fa6b0' type='octicon' name='gear'/>
                             </TouchableOpacity>
                         </View>
-                        <View style={{flex:1}}>
+                        <View style={{flex:1.5}}>
                             <TouchableOpacity>
-                                <Icon size={25} color='#9fa6b0' type='entypo' name='mail'/>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{flex:1}}>
-                            <TouchableOpacity>
-                                <Icon size={25} color='#9fa6b0' type="font-awesome" name='bell'/>
+                                <Icon size={22} color='#9fa6b0' type="font-awesome" name='bell'/>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -67,14 +62,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems:'center'
     },
-    searchBar : {
-        borderRadius: 5,
-        left: 13,
+    account : {
+        right: 50,
         top: 13,
-        width: 225,
-        height: 36,
-        backgroundColor: '#f6f6f6',
-        fontSize: 15,
+        fontSize: 20,
+        fontWeight: 'bold'
     },
     iconList: {
         flex:3,
@@ -85,4 +77,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default FeedHeader;
+export default AccountHeader;
