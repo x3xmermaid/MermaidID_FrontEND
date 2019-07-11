@@ -13,7 +13,7 @@ import HomeHeader from '../Components/Header/HomeHeader';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Login,
+		Home: Home,
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
