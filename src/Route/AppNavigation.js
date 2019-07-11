@@ -6,10 +6,11 @@ import Home from '../Screens/Home';
 import Feed from '../Screens/Feed';
 import Cart from '../Screens/Cart';
 import Account from '../Screens/Account';
+import Checkout from '../Screens/Checkout'
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Home,
+		Home: Cart,
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
