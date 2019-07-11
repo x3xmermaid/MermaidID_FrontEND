@@ -7,11 +7,13 @@ import Cart from '../Screens/Cart';
 import Account from '../Screens/Account';
 import Profile from '../Screens/Profile';
 import Wishlist from '../Screens/Wishlist';
+import DetailProduct from '../Screens/Detail';
 import HomeHeader from '../Components/Header/HomeHeader';
+
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Login,
+		Home: Home,
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
@@ -54,7 +56,8 @@ const BottomNavigation = createBottomTabNavigator(
 const RootNavigator = createStackNavigator(
 	{
 		Home : BottomNavigation,
-		Wishlist: Wishlist
+		Wishlist: Wishlist,
+		Detail: DetailProduct
 		
 	},
 	{

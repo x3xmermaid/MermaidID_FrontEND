@@ -45,13 +45,11 @@ class CarouselView extends Component {
     renderItem = ({item,index}) => (
     
             <View style={{flex:1,alignSelf:'center',marginTop:10,marginBottom:0}}>
-                <TouchableOpacity>
                     <Image
                     source={{uri:item.ads}}
                     style={{width:deviceWidth-30,height:110,borderRadius:10,marginEnd:10}}
                     
                     />
-                </TouchableOpacity>
             </View>
         
     )
@@ -67,11 +65,11 @@ class CarouselView extends Component {
                     sliderWidth={deviceWidth}
                     style={style.carouselView}
                      itemWidth={deviceWidth}
-                    // //autoplay={true}
-                    // //autoplayInterval={5000}
+                    autoplay={true}
+                    autoplayInterval={7000}
                     // //autoplayDelay={1000}
                     // layout={'default'}
-                    // //loop={true}
+                    loop={true}
                     // //containerCustomStyle={style.carouselView}
                     // //contentContainerStyle={style.carouselView}
                      horizontal={true}

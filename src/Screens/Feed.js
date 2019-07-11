@@ -8,9 +8,11 @@ class Feed extends Component {
         return(
             
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
+                                
                 <FeedHeader/>
-                
+                <View style={{marginTop:80}}>
                 <FeedCard/>
+                </View>
                 
              </View> 
             

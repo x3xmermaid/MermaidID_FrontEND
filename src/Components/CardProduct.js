@@ -1,17 +1,22 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import {Card,Rating} from 'react-native-elements';
+import {withNavigation} from 'react-navigation';
 
 class CardProduct extends Component {
 
     constructor(props){
-        super(props);
+        super(props);        
     }
     render(){
         return(
             <View style={{flex:1,flexGrow:1}}>
-            <TouchableOpacity>
+            <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => this.props.navigation.navigate('Detail',{id:this.props.idProduct})}
+            >
                 <Card 
+                
                 image={{uri:this.props.image}}
                 imageStyle={styles.ImageIconStyle}
                 containerStyle={{
@@ -21,7 +26,7 @@ class CardProduct extends Component {
                 margin:0,
                 borderColor:'transparent'
                 }}>
-                    <Text style={styles.ProductNameStyle} numberOfLines={2}>{this.props.title}</Text>
+                    <Text style={styles.ProductNameStyle} numberOfLines={2}>{this.props.titleProduct}</Text>
                    <Text style={styles.PriceTextStyle}>Rp {this.props.price}</Text>
                     <View style={{marginLeft:3,flexDirection:'row'}}>
                     <Rating
@@ -40,7 +45,7 @@ class CardProduct extends Component {
     }
 }
 
-export default CardProduct;
+export default withNavigation(CardProduct);
 
 const styles=StyleSheet.create ({
     ImageIconStyle: {
