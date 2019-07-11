@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import {createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import {createAppContainer, createBottomTabNavigator ,createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import Home from '../Screens/Home';
 import Feed from '../Screens/Feed';
 import Cart from '../Screens/Cart';
 import Account from '../Screens/Account';
-import Checkout from '../Screens/Checkout'
+import Profile from '../Screens/Profile';
+import Wishlist from '../Screens/Wishlist';
+import HomeHeader from '../Components/Header/HomeHeader';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Cart,
+		Home: Login,
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
-		Account: Account
+		Account: Profile
 	},
 	{
 		defaultNavigationOptions: ({navigation}) => ({
@@ -50,4 +51,18 @@ const BottomNavigation = createBottomTabNavigator(
 	}
 );
 
-export default createAppContainer(BottomNavigation);
+const RootNavigator = createStackNavigator(
+	{
+		Home : BottomNavigation,
+		Wishlist: Wishlist
+		
+	},
+	{
+		
+		mode:'modal',
+		headerMode:'none',
+
+	}
+)
+
+export default createAppContainer(RootNavigator);
