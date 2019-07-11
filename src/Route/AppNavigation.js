@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {createAppContainer, createBottomTabNavigator ,createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import Home from '../Screens/Home';
 import Feed from '../Screens/Feed';
 import Cart from '../Screens/Cart';
@@ -14,7 +13,7 @@ import HomeHeader from '../Components/Header/HomeHeader';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Home,
+		Home: Login,
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
