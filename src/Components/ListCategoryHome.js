@@ -2,6 +2,7 @@ import React,{Component} from  'react';
 import {View,Text,ScrollView,TouchableOpacity,Image,StyleSheet,AppRegistry} from 'react-native';
 import {categoryHorizontal} from '../Assets/dummy';
 
+
 class ListCategoryHome extends Component {
 
     loopCategory(name,image,key){

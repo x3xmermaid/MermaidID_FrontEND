@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: 360,
         height: 53,
-        backgroundColor: '#ffffff',
+        backgroundColor: 'transparent',
         zIndex: 5,
         shadowColor: "#000",
         shadowOffset: {

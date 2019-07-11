@@ -13,7 +13,8 @@ export const Product=[
     price:'180.000',
     image:'http://blog.elevenia.co.id/wp-content/uploads/2019/02/cupang-halfmoon.jpg',
     rating:4,
-    userRated:50
+    userRated:50,
+    description:'beli sekarang cupang super spiderman harga murah tetapi tidak murahan , kualitas gege abis auto mvp , menang banyak wow super sekali'
     },
     {
     id:2,
@@ -199,3 +200,8 @@ export const FeedData =[
     }
 ]
 export const wishlistdata=[1,2,4,6,7]
+
+export const productPhoto=['https://apollo-singapore.akamaized.net/v1/files/g520mykbwai73-ID/image;s=966x691;olx-st/_1_.jpg','https://apollo-singapore.akamaized.net/v1/files/zzczh5fdqacc2-ID/image;s=966x691;olx-st/_1_.jpg']
+
+
+
