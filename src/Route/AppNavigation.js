@@ -18,10 +18,11 @@ import AddImage from '../Screens/AddImage';
 import AddProductDetail from '../Screens/AddProductDetail';
 import EditImage from '../Screens/EditImage';
 import BottomNav from '../Components/BottomNav/BottomNav';
+import Shop from '../Screens/Shop';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: AddImage,
+		Home: Login,
 		Feed: AddProduct,
 		'Official Store': Cart,
 		Cart: Cart,

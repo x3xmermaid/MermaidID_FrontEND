@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Account from '../Screens/Account';
+// import Account from '../Screens/Account';
 
 class Detail extends Component {
     render() {
@@ -13,4 +13,4 @@ class Detail extends Component {
     }
 }
 
-export default createAppContainer(BottomNavigation);
+export default createAppContainer(Detail);

@@ -3,10 +3,25 @@ import { Text, View , StyleSheet, ImageBackground, ScrollView, Dimensions, Touch
 import ListDetail from '../Component/Account/listDetail';
 import DetailImage from '../Component/Account/imageDetail';
 import Accountheader from '../Components/Header/AccountHeader';
-
+import {connect} from 'react-redux'
+import { fetchStore } from '../Public/redux/action/store';
+// import console = require('console');
 
 class Shop extends Component {
+    constructor(props){
+        super(props);
+    }
+    getStore = () => {
+        this.props.dispatch(fetchStore())
+    }
+
+    componentDidMount() {
+        this.getStore()
+    }
     render() {
+        console.log(this.props.store.store.store_name)
+        let storeName = this.props.store.store.store_name
+        let storeIMG = this.props.store.store.img_store
         return(
             <View>
                 <Accountheader 
@@ -16,9 +31,9 @@ class Shop extends Component {
                     <ScrollView  showsVerticalScrollIndicator={false}>
                         <View style={style.cardBox}>
                     <View style={style.detailBox}>
-                        <ImageBackground source={require('../Assets/img/img.png')} style={style.imageBox}/>
+                        <ImageBackground source={{uri : storeIMG}} style={style.imageBox}/>
                         <View style={style.textBox}>
-                            <Text style={style.boldText}>{"hanya sebuah toko"}</Text>
+                            <Text style={style.boldText}>{storeName}</Text>
                             <ImageBackground source={require('../Assets/img/badges-off.jpg')} style={[style.imageBox, {height: 20, width: 15, marginBottom: 40}]}/>
                         </View>
                     </View>        
@@ -105,13 +120,14 @@ class Shop extends Component {
                 <View style={style.line}/>
             </ScrollView>
             </View>
+            {/* <Text style={style.boldText}>{data}</Text> */}
             </View>
             
         )
     }
 }
 
-export default Shop
+// export default Shop
 let heightWindow = Dimensions.get('window').height
 let widthWindow = Dimensions.get('window').width
 const style = StyleSheet.create({
@@ -181,3 +197,11 @@ const style = StyleSheet.create({
     }
 
 })
+
+const mapStateToProps = ( state ) => {
+    return {
+        store: state.store
+    }
+}
+
+export default connect (mapStateToProps)(Shop);
