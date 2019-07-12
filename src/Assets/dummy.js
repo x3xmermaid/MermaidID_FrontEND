@@ -241,6 +241,30 @@ export const FeedData =[
         productTitle      : ''
     }
 ]
+
+export const Category = [
+    {
+        id              : 1,
+        categoryName    : 'Pakaian',
+        checked         : false
+    },
+    {
+        id              : 2,
+        categoryName    : 'Peralatan Rumah Tangga',
+        checked         : false
+    },
+    {
+        id              : 3,
+        categoryName    : 'Mainan',
+        checked         : false
+    },
+    {
+        id              : 4,
+        categoryName    : 'Makanan',
+        checked         : false
+    },
+]
+
 export const wishlistdata=[1,2,4,6,7]
 
 export const productPhoto=['https://apollo-singapore.akamaized.net/v1/files/g520mykbwai73-ID/image;s=966x691;olx-st/_1_.jpg','https://apollo-singapore.akamaized.net/v1/files/zzczh5fdqacc2-ID/image;s=966x691;olx-st/_1_.jpg']

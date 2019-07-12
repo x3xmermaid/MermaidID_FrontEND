@@ -9,3 +9,17 @@ export const getProduct = () => {
         payload:axios.get(`${url}tb_product`)
     }
 }
+
+export const getCategory = () => {
+    return {
+        type:'GET_CATEGORY',
+        payload: axios.get(`${url}tb_category`)
+    }
+}
+
+export const getUser = () => {
+    return {
+        type:'GET_USER',
+        payload: axios.get(`${url}/mqb/tb_user?where=tb_user+id_user+1`)
+    }
+}
