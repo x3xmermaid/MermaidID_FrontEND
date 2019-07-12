@@ -50,12 +50,15 @@ class Register extends Component {
                     <View style={{marginTop:30, alignContent: 'space-around'}}>
                         <View style={{}}>
                             <TouchableOpacity style={styles.button}>
-                                <Image source={{uri: 'https://ecs7.tokopedia.net/assets-tokopedia-lite/v2/atreus/production/e03783d5.png'}} />
+                                <Image style={styles.image} source={require('../Assets/img/google.png')} />
+                                <Text style={{width: '35%'}} />                                
                                 <Text style={styles.font}>Google</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{paddingTop: 20}}>
                             <TouchableOpacity style={styles.button}>
+                                <Image style={styles.image} source={require('../Assets/img/facebook-512.png')} />
+                                <Text style={{width: '32%'}} />                                
                                 <Text style={styles.font}>Facebook</Text>
                             </TouchableOpacity>
                         </View>
@@ -96,7 +99,8 @@ const styles = StyleSheet.create(
             backgroundColor: 'white',
             borderRadius: 5,
             height: 50,
-            borderWidth:1
+            borderWidth:1,
+            flexDirection: 'row'
         },
         line : {
             borderTopWidth:1,
@@ -106,13 +110,16 @@ const styles = StyleSheet.create(
         },
         font: {
             fontSize: 15,
-            color: 'black',
-            top: '30%'
+            color: 'black'
         },
         registerButton: {
             fontSize: 18,
             color: 'white',
             top: '30%'
+        },
+        image: {
+            width: 20,
+            height: 20
         }
     }
 )

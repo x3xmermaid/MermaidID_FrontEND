@@ -13,42 +13,101 @@ class RegisterAddProfile extends Component {
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
                 <BasicHeader />
                 <View style={{flex:1, position: 'absolute', width: '90%', margin:20}}>
-                    <View style={{flex:1, marginTop: '17%', margin: 5}}>
-                        <Text style={{fontSize: 20, fontWeight:'600', color:'#595959'}}>Apa yang Anda jual?</Text>
-                    </View>
-                    <View style={{flex:1}}>
-                    <Text>Nama Produk</Text>
-                        <TextInput 
-                            maxLength={70} 
-                            selectionColor='#42b549' 
-                            style={{width:'95%',borderBottomColor:'#42b549', borderBottomWidth:2}}
-                            onChangeText={(text) => {this.setState({productName: text})}}
+                <View
+                    style={{
+                        backgroundColor: 'rgba(46, 50, 72, 1)',
+                        width: SCREEN_WIDTH,
+                        alignItems: 'center',
+                        paddingBottom: 30,
+                    }}
+                    >
+                    <Text
+                        style={{
+                        color: 'white',
+                        fontSize: 30,
+                        marginVertical: 10,
+                        fontWeight: '300',
+                        }}
+                    >
+                        Sign up
+                    </Text>
+                    <Input
+                        leftIcon={
+                        <Icon
+                            name="user"
+                            type="simple-line-icon"
+                            color="rgba(110, 120, 170, 1)"
+                            size={25}
                         />
-                    </View>
-                    <View style={{flex:1}}>
-                    <Text>Nama Produk</Text>
-                        <TextInput 
-                            maxLength={70} 
-                            selectionColor='#42b549' 
-                            style={{width:'95%',borderBottomColor:'#42b549', borderBottomWidth:2}}
-                            onChangeText={(text) => {this.setState({productName: text})}}
+                        }
+                        placeholder="Username"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        keyboardType="email-address"
+                        returnKeyType="next"
+                        ref={input => (this.usernameInput = input)}
+                        onSubmitEditing={() => {
+                        this.email2Input.focus();
+                        }}
+                    />
+                    <Input
+                        leftIcon={
+                        <Icon
+                            name="email-outline"
+                            type="material-community"
+                            color="rgba(110, 120, 170, 1)"
+                            size={25}
                         />
-                    </View>
-                    <View style={{flex:1}}>
-                    <Text>Nama Produk</Text>
-                        <TextInput 
-                            maxLength={70} 
-                            selectionColor='#42b549' 
-                            style={{width:'95%',borderBottomColor:'#42b549', borderBottomWidth:2}}
-                            onChangeText={(text) => {this.setState({productName: text})}}
+                        }
+                        placeholder="Email"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        keyboardType="email-address"
+                        returnKeyType="next"
+                        ref={input => (this.email2Input = input)}
+                        onSubmitEditing={() => {
+                        this.password2Input.focus();
+                        }}
+                    />
+                    <Input
+                        leftIcon={
+                        <Icon
+                            name="lock"
+                            type="simple-line-icon"
+                            color="rgba(110, 120, 170, 1)"
+                            size={25}
                         />
-                    </View>
-                    
-                    
-                    <View style={{top:28}}>
-                        <TouchableOpacity onPress={()=>navigate('Verification')} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
-                            <Text style={{fontSize: 20, color: 'white', margginTop:10}}>Simpan</Text>
-                        </TouchableOpacity>
+                        }
+                        placeholder="Password"
+                        autoCapitalize="none"
+                        secureTextEntry={true}
+                        autoCorrect={false}
+                        keyboardType="default"
+                        returnKeyType="next"
+                        ref={input => (this.password2Input = input)}
+                        onSubmitEditing={() => {
+                        this.confirmPassword2Input.focus();
+                        }}
+                    />
+                    <Input
+                        leftIcon={
+                        <Icon
+                            name="lock"
+                            type="simple-line-icon"
+                            color="rgba(110, 120, 170, 1)"
+                            size={25}
+                        />
+                        }
+                        placeholder="Confirm Password"
+                        autoCapitalize="none"
+                        keyboardAppearance="light"
+                        secureTextEntry={true}
+                        autoCorrect={false}
+                        keyboardType="default"
+                        returnKeyType="done"
+                        ref={input => (this.confirmPassword2Input = input)}
+                        blurOnSubmit
+                    />
                     </View>
                 </View>
             </View>

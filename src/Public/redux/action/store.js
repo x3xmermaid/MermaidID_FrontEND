@@ -35,3 +35,11 @@ export const deleteStore = (id) =>{
     } 
 }
 
+export const addStore = (data) => {
+    let link= ''
+    return {
+        type: 'ADD_CATEGORY',
+        payload: axios.post(link)
+    }
+}
+
