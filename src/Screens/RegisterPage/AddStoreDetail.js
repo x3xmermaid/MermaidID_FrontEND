@@ -107,7 +107,8 @@ const styles = StyleSheet.create(
         container: {
             flex:1,
             margin: 15,
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginTop: 20
         },
         inputContainerStyle: {
             marginTop: 16,
