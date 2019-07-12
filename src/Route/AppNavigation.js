@@ -26,8 +26,8 @@ import VerificationPage from '../Screens/VerificationPage'
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Login,
-		Feed: AddStoreDetail,
+		Home: Home,
+		Feed: Feed,
 		'Official Store': Cart,
 		Keranjang: Cart,
 		AKun: EditImage
