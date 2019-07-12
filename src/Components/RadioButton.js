@@ -11,28 +11,25 @@ export default class RadioButtons extends Component {
 		const { value } = this.state;
 
 		return (
-            <ScrollView>
             <View>
 				{options.map(item => {
 					return (
-						<View key={item.id} style={styles.buttonContainer}>
-							<Text style={styles.text}>{item.categoryName}</Text>
+						<View key={item.key} style={styles.buttonContainer}>
+							<Text style={styles.text}>{item.text}</Text>
 							<TouchableOpacity
 								style={styles.circle}
 								onPress={() => {
 									this.setState({
-										value: item.id,
+										value: item.key,
 									});
 								}}
 							>
-								{value === item.id && <View style={styles.checkedCircle} />}
+								{value === item.key && <View style={styles.checkedCircle} />}
 							</TouchableOpacity>
 						</View>
 					);
 				})}
-			</View>
-            </ScrollView>
-			
+			</View>			
 		);
 	}
 }

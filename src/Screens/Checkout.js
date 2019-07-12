@@ -40,7 +40,7 @@ class Checkout extends Component {
                             <Text style={{color:'rgba(0,0,0,0.5)', fontSize:14}}>{"Rp 20.0000"}</Text>
                         </View>
                     </View>
-                    <View style={[style.promotionCard, {flexDirection:'row', justifyContent:'space-between',marginTop:10, padding:20}]}>
+                    <View style={[style.promotionCard, {flexDirection:'row', justifyContent:'space-between', marginTop:10, padding:20}]}>
                         <View style={{flexDirection:'column', marginLeft: -10}}>
                             <Text style={{color:'rgba(0,0,0,0.7)', fontSize:15}}>{"Total Tagihan"}</Text>
                             <Text style={{color:'rgba(0,0,0,0.5)', fontSize:15}}>{"-"}</Text>

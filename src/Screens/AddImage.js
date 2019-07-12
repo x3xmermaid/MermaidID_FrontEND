@@ -96,7 +96,9 @@ export default class App extends Component {
     render() {
         return (
             <View style={{flex:1, flexDirection: 'column', backgroundColor: '#fff', alignItems: 'center'}}>
-                <AddProductheader 
+                <AddProductheader
+                    backPress={()=>this.props.navigation.goBack()}
+                    rightPress={()=>this.props.navigation.navigate('EditImage')}
                     screenLocation='addImage'
                 />
                 <View style={{flex:1, flexDirection: 'column', backgroundColor: '#fff', alignItems: 'center', marginTop: '20%'}}>

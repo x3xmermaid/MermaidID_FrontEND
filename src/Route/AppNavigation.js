@@ -14,14 +14,15 @@ import AddProduct from '../Screens/AddProduct';
 import AddImage from '../Screens/AddImage';
 import AddProductDetail from '../Screens/AddProductDetail';
 import EditImage from '../Screens/EditImage';
+import BottomNav from '../Components/BottomNav/BottomNav';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Home,
-		Feed: Feed,
+		Home: AddImage,
+		Feed: AddProduct,
 		'Official Store': Cart,
 		Cart: Cart,
-		Account: Profile
+		Account: EditImage
 	},
 	{
 		defaultNavigationOptions: ({navigation}) => ({

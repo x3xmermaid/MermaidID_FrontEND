@@ -4,9 +4,13 @@ import {item} from '../../Assets/dummy'
 import {CheckBox} from 'react-native-elements'
 
 class itemFlatlist extends Component{
-    // constructor(props){
-    //     super(props);
-    // }
+    constructor(props){
+        super(props);
+        
+    }
+    componentDidMount(){
+        // console.log(this.props.id_store)
+    }
     renderItem = ({item, index}) => {
         return (
             <View style={{flexDirection:'column', marginTop: 15}}>
@@ -15,7 +19,7 @@ class itemFlatlist extends Component{
                     <ImageBackground style={{height:60, width:60}} source={require('../../Assets/img/img.png')}></ImageBackground>
                     <View style={{flexDirection:'column'}}>
                         <Text style={{marginLeft:10, marginTop: -30 ,color:'black'}}>
-                            {item.item}
+                            {item.product_name}
                         </Text>
                         <Text style={{marginLeft:10 ,color:'#FF5722', fontWeight:'600'}}>{"Rp"+item.price}</Text>
                     </View>
@@ -41,7 +45,7 @@ class itemFlatlist extends Component{
             <View style={style.flatCard}>
             {/* <CheckBox></CheckBox> */}
                 <FlatList
-                    data={item}
+                    data={this.props.id_store}
                     renderItem={this.renderItem}
                 />
             </View>

@@ -4,7 +4,24 @@ import AddProductHeader from '../Components/Header/AddProductHeader';
 import RadioButton from '../Components/RadioButton';
 import { Category } from '../Assets/dummy';
 
-const options = {Category}
+const options = [
+    {
+        key: 'pay',
+        text: 'Most High Pay',
+    },
+    {
+        key: 'performance',
+        text: 'Most Perfomance',
+    },
+    {
+        key: 'aToZ',
+        text: 'A - Z',
+    },
+    {
+        key: 'zToA',
+        text: 'Z - A',
+    },
+];
 
 
 class AddProduct extends Component {
@@ -20,7 +37,9 @@ class AddProduct extends Component {
     render() {
         return (
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
-                <AddProductHeader 
+                <AddProductHeader
+                    backPress={()=>this.props.navigation.goBack()}
+                    rightPress={()=>this.props.navigation.navigate('AddImage')}
                     screenLocation='addProduct'
                 />
                 <View style={{flex:1, position: 'absolute', width: '90%', margin:20}}>

@@ -31,7 +31,8 @@ class AddProductDetail extends Component {
     render() {
         return (
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
-                <AddProductHeader 
+                <AddProductHeader
+                    backPress={()=>this.props.navigation.goBack()}
                     screenLocation='addProductDetail'
                 />
                 <View style={{flex:1, position: 'absolute', width: '90%', margin:20}}>

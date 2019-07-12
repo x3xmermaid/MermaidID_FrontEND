@@ -17,7 +17,7 @@ class AddProductHeader extends Component {
                 <View style={styles.headerComponent}>
                     <View style={{flex:5, alignContent: 'flex-start', flexDirection:'row'}}>
                         <View style={{ flex: 1, margin: 1 }}>
-                            <TouchableOpacity onPress={()=>this.props.navigation.goBack() }>
+                            <TouchableOpacity onPress={backPress}>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
@@ -41,17 +41,17 @@ class AddProductHeader extends Component {
                         <View style={{marginLeft:10}}>
                                 {
                                     screenLocation == 'addProduct' ? (
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddImage')}>
+                                        <TouchableOpacity onPress={rightPress}>
                                             <Text style={{color:'#737373'}}>Selanjutnya</Text>
                                         </TouchableOpacity>
                                     ) : (
                                     screenLocation == 'addImage' ? (
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('EditImage')}>
+                                        <TouchableOpacity onPress={rightPress}>
                                             <Text style={{color:'#737373'}}>Selanjutnya</Text>
                                         </TouchableOpacity>
                                     ) : (
                                     screenLocation == 'editImage' ? (
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddProductDetail')}>
+                                        <TouchableOpacity onPress={rightPress}>
                                             <Text style={{color:'#33cc33'}}>Selanjutnya</Text>
                                         </TouchableOpacity>
                                     ) : (
