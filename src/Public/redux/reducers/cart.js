@@ -7,6 +7,7 @@ const initialState = {
     fetched: false,
     error: null,
     cart: [],
+    totalPrice: 0,
     cartProduct: [],
     categoryName: '',
     image: '',
@@ -20,11 +21,15 @@ const cartReducer = function(state=initialState, action){
         case "SET_IMAGE":
             return  {...state, image: action.payload};
             break;
+        case "GET_CART":
+            return {...state, error:null};
+            break;
         case "FETCH_CART_PENDING":
             return  {...state, fetching:true};
             break;
         case "FETCH_CART_FULFILLED":
             let cartStore = action.payload.data
+            // let product =[]
             let max = action.payload.data.store.length
             // cons
             let tempCart =[]
@@ -32,22 +37,37 @@ const cartReducer = function(state=initialState, action){
                 let key = action.payload.data.store.filter(function(store){
                     return store.id_store == action.payload.data.store[i].id_store;
                 })
-                
-                // console.log(storeData[0])
+                let product = action.payload.data.product.filter(function(product){
+                    return product.id_store == action.payload.data.store[i].id_store;
+                })
+                let totalPrice = 0
+                for(let j=0; j< product.length; j++){
+                    let priceItem = product[j].price * product[j].qty
+                    totalPrice = totalPrice + priceItem; 
+                }
+                // console.log("bler")
+                // console.log(product)
                 tempCart[i] = {
                     data: action.payload.data.product.filter(function(product){
                         return product.id_store == action.payload.data.store[i].id_store;
                     }),
                     // key:"data",
-                    key
+                    key,
+                    total: totalPrice,
                 }
             }
 
+            max = action.payload.data.product.length
+            let totalPrice = 0
+            for(let i=0; i<max; i++){
+                let priceItem = action.payload.data.product[i].price * action.payload.data.product[i].qty
+                totalPrice = totalPrice + priceItem; 
+            }
             // let unique = [...new Set(cartStore.id_store)]
             // console.log(action.payload.data.store[0].id_store)
-            console.log(tempCart)
+            // console.log(tempCart)
             // fo
-            return  {...state, fetching:false, cart:tempCart};
+            return  {...state, fetching:false, totalPrice: totalPrice, cart:tempCart, cartProduct:action.payload.data.product};
             break;
         case "FETCH_CART_REJECTED":
             return  {...state, fetching:false, error: action.payload};

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
 import LoginHeader from '../Components/Header/LoginHeader';
+import {connect} from 'react-redux'
+import {postLogin} from '../Public/redux/action/login'
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
@@ -12,7 +14,11 @@ class Register extends Component {
             Text: {},
         };
     }
-
+    _login = () => {
+        // console.log(hihay)
+        this.props.dispatch(postLogin(this.state.email))
+        this.props.navigation.navigate('Verification')
+    }
     render() {
         const { navigate, goBack } = this.props.navigation;
         return (
@@ -28,10 +34,13 @@ class Register extends Component {
                     </View>
                     <View style={styles.inputLine}/>
                     <View>
-                        <TextInput allowFontScaling maxLength={40} selectionColor='#42b549' style={{width: winWidth*0.85}}/>
+                        <TextInput allowFontScaling maxLength={40} 
+                        selectionColor='#42b549' 
+                        onChangeText={(text) => this.setState({email:text})}
+                        style={{width: winWidth*0.85}}/>
                     </View>
                     <View style={{top:28}}>
-                        <TouchableOpacity onPress={()=>navigate('Verification')} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
+                        <TouchableOpacity onPress={()=>this._login()} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
                             <Text style={styles.registerButton}>Daftar</Text>
                         </TouchableOpacity>
                     </View>
@@ -108,4 +117,13 @@ const styles = StyleSheet.create(
     }
 )
 
-export default Register;
+
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(Register);

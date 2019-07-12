@@ -3,19 +3,30 @@ import {TouchableOpacity, View , Text, StyleSheet, Dimensions, ImageBackgroundm,
 import {shop} from '../../Assets/dummy'
 import {Button} from 'react-native-elements'
 import FlatItem from './itemFlatlist'
+import {connect} from 'react-redux'
+// import console = require('console');
 
 class AddressCard extends Component{
-    // constructor(props){
-    //     super(props);
-    // }
+    constructor(){
+        super();
+    }
+    getUser = () => {
+       this.props.user
+    }
+
+    componentDidMount() {
+        this.getUser()
+    }
     render(){
-        let text = "Asrama putri ayu Jl. Nusa indah no 100 perumnas condong catur kec. depok kab.sleman yogyakarta, Depok, Kab. Sleman 55283, 6282391082250"
+        console.log("this.props.user")
+        console.log(this.props.user)
+        // let text = "Asrama putri ayu Jl. Nusa indah no 100 perumnas condong catur kec. depok kab.sleman yogyakarta, Depok, Kab. Sleman 55283, 6282391082250"
         return(
             <View style={style.shadow}>
                 <Text style={{fontSize:18, color:'black', marginBottom:5}}>{"Tujuan Pengiriman"}</Text>
                 <Text>{"Try Satria   "}<Text style={{color:'#42B549',marginBottom:4 , backgroundColor:'#DAF5DB', fontWeight:'400'}}>{" Utama"}</Text></Text>
                 <Text style={{color:'rgba(0,0,0,.7)',marginBottom:3}}>{"Try Satria Amanattullah"}</Text>
-                <Text style={{lineHeight:20}}>{text}</Text>
+                <Text style={{lineHeight:20}}>{"text"}</Text>
                 <View style={[style.promoCard, {justifyContent: 'space-between'}]}>
                   <View style={style.button}>
                         <Text style={{color:'#03AC0E'}}>{"Kirim Ke Banyak Alamat"}</Text>
@@ -75,4 +86,10 @@ const style = StyleSheet.create({
     
 })
 
-export default AddressCard
+const mapStateToProps = ( state ) => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect (mapStateToProps)(AddressCard);

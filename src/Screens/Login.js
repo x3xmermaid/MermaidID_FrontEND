@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
 import LoginHeader from '../Components/Header/LoginHeader';
+import {connect} from 'react-redux'
+import {postLogin} from '../Public/redux/action/login'
+// import console = require('console');
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
@@ -9,16 +12,18 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: '',
+            email: '',
         };
     }
 
-    Login = () => {
-        this.props.dispatch(getCategories())
+    _login = () => {
+        // console.log(hihay)
+        this.props.dispatch(postLogin(this.state.email))
     }
 
     render() {
         const { navigate, goBack } = this.props.navigation;
+        // console.log(this.state.text)
         return (
             <View style={styles.mainScreen}>
                 <LoginHeader
@@ -37,12 +42,12 @@ class Login extends Component {
                             maxLength={40}
                             selectionColor='#42b549'
                             style={{width: winWidth*0.85}}
-                            onChangeText={(text) => this.setState({text})}
+                            onChangeText={(text) => this.setState({email:text})}
                             value={this.state.text}
                         />
                     </View>
                     <View style={{marginTop: 30}}>
-                        <TouchableOpacity onPress={()=>navigate('Verification')} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
+                        <TouchableOpacity onPress={() => this._login()} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
                             <Text style={{fontSize: 20, color: 'white', top: 8}}>Selanjutnya</Text>
                         </TouchableOpacity>
                     </View>
@@ -121,4 +126,12 @@ const styles = StyleSheet.create(
     }
 )
 
-export default Login;
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(Login);

@@ -22,11 +22,11 @@ import Shop from '../Screens/Shop';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Login,
+		Home: Verification,
 		Feed: AddProduct,
-		'Official Store': Cart,
+		'Official Store': Checkout,
 		Keranjang: Cart,
-		AKun: EditImage
+		AKun: Checkout
 	},
 	{
 		defaultNavigationOptions: ({navigation}) => ({

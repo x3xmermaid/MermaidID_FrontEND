@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, ImageBackground, TouchableOpacity} from 'react-native';
 import {CheckBox} from 'react-native-elements'
 import CartHeader from '../Components/Header/CartHeader';
 import FlatCard from '../Component/Checkout/shopFLatlist'
 import AddressCard from '../Component/Checkout/addressCard'
+import {updateCheckout} from '../Public/redux/action/checkout'
+import {connect} from 'react-redux'
+import { withNavigation } from 'react-navigation';
 
 class Checkout extends Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount(){
+        this.getData()
+    }
+    getData = () => {
+        this.props.cart
+    }
+    buyed = () => {
+        this.props.dispatch(updateCheckout(this.props.cart.cartProduct))
+    }
     render() {
         return(
             <View style={{flex:1,alignItems:'flex-start',flexDirection:'column'}}>
@@ -33,21 +48,23 @@ class Checkout extends Component {
                             <Text style={{color:'rgba(0,0,0,0.5)', fontSize:15}}>{"Pembulatan Emas sebesar Rp 16.000"}</Text>
                         </View>
                     </View>
-                    <View style={[style.promotionCard, {flexDirection:'column', marginTop:10, padding:20}]}>
+                    {/* <View style={[style.promotionCard, {flexDirection:'column', marginTop:10, padding:20}]}>
                         <Text style={{color:'black', fontSize:16, fontWeight:'500'}}>{"Ringkasan Belanja"}</Text>
                         <View style={{flexDirection:'row', justifyContent:'space-between', marginTop:10}}>
                             <Text style={{color:'rgba(0,0,0,0.5)', fontSize:14}}>{"Total Harga (6 barang)"}</Text>
-                            <Text style={{color:'rgba(0,0,0,0.5)', fontSize:14}}>{"Rp 20.0000"}</Text>
+                            <Text style={{color:'rgba(0,0,0,0.5)', fontSize:14}}>{"Rp. "+this.props.cart.totalPrice}</Text>
                         </View>
-                    </View>
+                    </View> */}
                     <View style={[style.promotionCard, {flexDirection:'row', justifyContent:'space-between', marginTop:10, padding:20}]}>
                         <View style={{flexDirection:'column', marginLeft: -10}}>
                             <Text style={{color:'rgba(0,0,0,0.7)', fontSize:15}}>{"Total Tagihan"}</Text>
-                            <Text style={{color:'rgba(0,0,0,0.5)', fontSize:15}}>{"-"}</Text>
+                            <Text style={{color:'rgba(0,0,0,0.5)', fontSize:15}}>{"Rp. "+this.props.cart.totalPrice}</Text>
                         </View>
-                        <View style={style.button}>
-                            <Text style={{color:'white'}}>{"Pilih Pembayaran"}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => this.buyed()}>
+                            <View style={style.button}>
+                                <Text style={{color:'white'}}>{"Pilih Pembayaran"}</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </ScrollView>
              </View> 
@@ -107,4 +124,11 @@ const style = StyleSheet.create({
     }
 })
 
-export default Checkout
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart
+    }
+}
+
+export default connect(mapStateToProps)(withNavigation(Checkout));
