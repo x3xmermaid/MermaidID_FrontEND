@@ -105,6 +105,48 @@ export const carousel = [
     }
 ]
 
+export const shop = [
+    {
+        id:1,
+        store: "Mermaid Store",
+        address: "jakarta",
+    },
+    {
+        id:2,
+        store: "Mermaid ID",
+        address: "Bandung"
+    },
+    {
+        id:3,
+        store: "Mermaid",
+        address: "Mermaid"
+    },
+]
+
+export const item = [
+    {
+        id:1,
+        item: "Indomie Goreng",
+        price: 100000,
+        berat: 5,
+        total: 1
+    },
+    {
+        id:2,
+        item: "Indomie Rebus",
+        price: 20000,
+        berat: 5,
+        total: 2
+    },
+    {
+        id:3,
+        item: "Mermaid Bakar",
+        price: 80000,
+        berat: 5,
+        total: 3
+    },
+]
+
 export const categoryHorizontal=[
     {
         id:1,

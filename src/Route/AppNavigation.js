@@ -17,10 +17,10 @@ import EditImage from '../Screens/EditImage';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Login,
-		Feed: AddProduct,
-		'Official Store': AddProductDetail,
-		Cart: AddImage,
+		Home: Home,
+		Feed: Feed,
+		'Official Store': Cart,
+		Cart: Cart,
 		Account: Profile
 	},
 	{
