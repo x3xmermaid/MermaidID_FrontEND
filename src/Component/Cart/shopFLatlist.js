@@ -1,10 +1,34 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, View , Text, StyleSheet, Dimensions, ImageBackgroundm, FlatList} from 'react-native'
-import {shop} from '../../Assets/dummy'
+import {TouchableOpacity, View , Text, StyleSheet, Dimensions, ImageBackground, FlatList, SectionList} from 'react-native'
+import {shop, Product} from '../../Assets/dummy'
 import {CheckBox} from 'react-native-elements'
 import FlatItem from './itemFlatlist'
 import {connect} from 'react-redux'
-import {fetchCart} from '../redux/actions/cart'
+import {fetchCart} from '../../Public/redux/action/cart'
+import {getProduct} from '../../Public/redux/action/product';
+import {dum} from '../../Assets/dummySection'
+// import console = require('console');
+class SectionListItem extends Component {
+    render(){
+        // console.log(this.props.item)
+        return(
+            <View style={{flexDirection:'column', backgroundColor:'blue'}}>
+                <Text>{this.props.item.product_name}</Text>
+            </View>
+        )
+    }
+}
+class SectionHeader extends Component {
+    render(){
+        console.log("this.props.aye")
+        console.log(this.props.section)
+        return(
+            <View style={{flexDirection:'column', backgroundColor:'blue'}}>
+                <Text>{this.props.section.key[0].store_name}</Text>
+            </View>
+        )
+    }
+}
 
 class ShopFlatlist extends Component{
     constructor(props){
@@ -16,19 +40,48 @@ class ShopFlatlist extends Component{
     getData = () => {
         this.props.dispatch(fetchCart())
     }
-    renderItem = ({item, index}) => {
+    renderStore = ({section}) => {
         return (
             <View style={style.shadow}>
                 <View style={{flexDirection:'row', alignItems:'center', marginLeft:-0}}>
                     <CheckBox checked={true}/>
                     <View style={{flexDirection:'column'}}>
                         <Text>
-                            {"Toko: "}<Text style={{color:'black', fontSize:15}}>{item.store}</Text>
+                            {"Toko: "}<Text style={{color:'black', fontSize:15}}>{section.key[0].store_name}</Text>
                         </Text>
-                        <Text>{item.address}</Text>
+                        <Text>{section.key[0].location}</Text>
                     </View>
                 </View>
-                <FlatItem></FlatItem>
+                
+                {/* <FlatItem id_store={this.props.cart.cartProduct.filter(Product => this.props.cart.cartStore.indexOf(Product.id_store))} ></FlatItem> */}
+            </View>
+        )
+    }
+    renderItem = ({item, index}) => {
+        return (
+            <View style={{flexDirection:'column', marginTop: 15, paddingRight:20, backgroundColor:'blue'}}>
+                <View style={{flexDirection:'row', alignItems:'center', marginLeft:-0}}>
+                    <CheckBox checked={true}/>
+                    <ImageBackground style={{height:60, width:60}} source={require('../../Assets/img/img.png')}></ImageBackground>
+                    <View style={{flexDirection:'column'}}>
+                        <Text style={{marginLeft:10, marginTop: -30 ,color:'black'}}>
+                            {item.product_name}
+                        </Text>
+                        <Text style={{marginLeft:10 ,color:'#FF5722', fontWeight:'600'}}>{"Rp"+item.price}</Text>
+                    </View>
+                    <ImageBackground style={{height:26, width:26, marginTop:-30}} source={require('../../Assets/img/recycle.png')}></ImageBackground>
+                </View>
+                <View style={{flexDirection:'row-reverse', alignItems:'center', marginRight:-0, marginTop: 20, marginBottom: 10}}>
+                    <ImageBackground style={{height:26, width:26, marginLeft:5}} source={require('../../Assets/img/plus.png')}></ImageBackground>
+                        <Text style={{marginLeft:3, color:'black'}}>
+                            {item.total}
+                        </Text>
+                    <ImageBackground style={{height:26, width:26, marginLeft:5}} source={require('../../Assets/img/min.png')}></ImageBackground>
+                    <ImageBackground style={{height:26, width:26, marginLeft:5}} source={require('../../Assets/img/love.png')}></ImageBackground>
+                </View>
+                    <Text style={{color:"#42B549", marginLeft:20, marginBottom:15}}>{"Tulis Catatan untuk Toko"}</Text>
+                    <View style={style.line}></View>
+                    <View style={style.line}></View>
             </View>
         )
     }
@@ -36,11 +89,17 @@ class ShopFlatlist extends Component{
     render(){
         return(
             <View style={style.flatCard}>
-            {/* <CheckBox></CheckBox> */}
-                <FlatList
-                    data={shop}
+                {/* <FlatList
+                    data={this.props.cart.cartStore}
                     renderItem={this.renderItem}
-                />
+                /> */}
+                <SectionList
+
+                    renderItem={this.renderItem}
+                    sections={this.props.cart.cart}
+                    renderSectionHeader={this.renderStore}
+                    keyExtractor={(item, index) => item.product_name} 
+                ></SectionList>
             </View>
         )
     }
@@ -80,10 +139,11 @@ const style = StyleSheet.create({
 })
 
 // export default ShopFlatlist
-const mapStateToProps = (state) => {
+const mapStateToProps = ( state ) => {
     return {
-      carts: state.cart
+        product:state.product,
+        cart: state.cart
     }
-  }
-  
-  export default connect(mapStateToProps)(ShopFlatlist)
+}
+
+export default connect(mapStateToProps)(ShopFlatlist);
