@@ -58,9 +58,9 @@ const styles = StyleSheet.create({
 	},
   
 	checkedCircle: {
-		width: 14,
-		height: 14,
-		borderRadius: 7,
+		width: 25,
+		height: 25,
+		borderRadius: 12,
 		backgroundColor: '#42b549',
 	},
 });

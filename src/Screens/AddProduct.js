@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import{ View, Text, TextInput } from 'react-native';
+import{ View, Text, TextInput, ScrollView } from 'react-native';
 import AddProductHeader from '../Components/Header/AddProductHeader';
 import RadioButton from '../Components/RadioButton';
-import { Category } from '../Assets/dummy';
 
 const options = [
     {
@@ -60,9 +59,9 @@ class AddProduct extends Component {
                         <Text style={{fontSize: 20, fontWeight:'600', color:'#595959'}}>Kategori Produk</Text>
                         <Text style={{fontSize: 15, fontWeight:'200'}}>Rekomendasi Kategori</Text>
                     </View>
-                    <View style={{flex:1, marginTop: 10, justifyContent: 'center', alignItems: 'center'}}>
+                    <ScrollView style={{flex:1, marginTop: 20, alignSelf: 'center'}}>
                         <RadioButton options={options} />
-                    </View> 
+                    </ScrollView> 
                     <View style={{flex:1}}></View>
                 </View>
             </View>

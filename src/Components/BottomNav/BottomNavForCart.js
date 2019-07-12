@@ -5,24 +5,19 @@ import { Icon } from 'react-native-elements';
 const widthDim = Dimensions.get('window').width
 const heightDim = Dimensions.get('window').height
 
-class BottomNav extends Component {
+class BottomNavForCart extends Component {
     render() {
         return(
                 <View style={styles.BottomHeader}>
                 <View style={{flex:1, flexDirection: 'row', justifyContent: 'space-around'}}>
-                    <View style={{flex:1}}>
-                        <TouchableOpacity style={{marginTop: 10}}>
-                            <Icon size={30} name='message1' type='antdesign' />
-                        </TouchableOpacity>
+                    <View style={{flex:1, flexDirection: 'column', marginLeft: 20}}>
+                        <Text style={{}}>Total Harga</Text>
+                        <Text style={{color:'#ff6600'}}>Rp.92.000</Text>
                     </View>
+                    <View style={{flex:1}} />
                     <View style={{flex:2}}>
-                        <TouchableOpacity style={{flex:1, borderWidth: 2, borderColor: '#ff6600', borderRadius: 6}}>
-                            <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 7, color: '#ff6600'}}>Beli</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{flex:2}}>
-                        <TouchableOpacity style={{flex:1, borderWidth: 2, borderColor: '#ff6600', backgroundColor: '#ff6600', alignSelf: 'center', borderRadius: 6}}>
-                            <Text style={{color: 'white', marginTop: 10}}>Tambah Ke Keranjang</Text>
+                        <TouchableOpacity style={{flex:1, backgroundColor: '#ff6600', borderRadius: 6, borderColor: '#fff', borderWidth:3}}>
+                            <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 7, color: 'white'}}>Beli</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -39,7 +34,7 @@ const styles = StyleSheet.create(
             backgroundColor: '#ffffff',
             borderTopWidth: 1,
             zIndex: 5,
-            top: heightDim*0.9,
+            top: heightDim*0.5,
             elevation: 2,
             borderTopColor: '#a6a6a6',
             shadowColor: "#a6a6a6",
@@ -52,4 +47,4 @@ const styles = StyleSheet.create(
     }
 )
 
-export default BottomNav;
+export default BottomNavForCart;
