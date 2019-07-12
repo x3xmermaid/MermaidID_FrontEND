@@ -7,6 +7,9 @@ import Cart from '../Screens/Cart';
 import Profile from '../Screens/Profile';
 import Login from '../Screens/Login';
 import Wishlist from '../Screens/Wishlist';
+import DetailProduct from '../Screens/Detail';
+import Checkout from '../Screens/Checkout'
+import HomeHeader from '../Components/Header/HomeHeader';
 import shop from '../Screens/Shop';
 import Register from '../Screens/Register';
 import Verification from '../Screens/Verifikasi';
@@ -15,12 +18,11 @@ import AddImage from '../Screens/AddImage';
 import AddProductDetail from '../Screens/AddProductDetail';
 import EditImage from '../Screens/EditImage';
 import BottomNav from '../Components/BottomNav/BottomNav';
-import BasicHeader from '../Components/Header/BasicHeader';
-import BottomNavForCart from '../Components/BottomNav/BottomNavForCart';
+import Shop from '../Screens/Shop';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: BottomNavForCart,
+		Home: Login,
 		Feed: AddProduct,
 		'Official Store': Cart,
 		Keranjang: Cart,

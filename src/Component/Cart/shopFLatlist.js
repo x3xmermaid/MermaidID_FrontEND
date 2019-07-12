@@ -6,29 +6,6 @@ import FlatItem from './itemFlatlist'
 import {connect} from 'react-redux'
 import {fetchCart} from '../../Public/redux/action/cart'
 import {getProduct} from '../../Public/redux/action/product';
-import {dum} from '../../Assets/dummySection'
-// import console = require('console');
-class SectionListItem extends Component {
-    render(){
-        // console.log(this.props.item)
-        return(
-            <View style={{flexDirection:'column', backgroundColor:'blue'}}>
-                <Text>{this.props.item.product_name}</Text>
-            </View>
-        )
-    }
-}
-class SectionHeader extends Component {
-    render(){
-        console.log("this.props.aye")
-        console.log(this.props.section)
-        return(
-            <View style={{flexDirection:'column', backgroundColor:'blue'}}>
-                <Text>{this.props.section.key[0].store_name}</Text>
-            </View>
-        )
-    }
-}
 
 class ShopFlatlist extends Component{
     constructor(props){
@@ -45,7 +22,7 @@ class ShopFlatlist extends Component{
             <View style={style.shadow}>
                 <View style={{flexDirection:'row', alignItems:'center', marginLeft:-0}}>
                     <CheckBox checked={true}/>
-                    <View style={{flexDirection:'column'}}>
+                    <View style={{flexDirection:'column', paddingRight:30}}>
                         <Text>
                             {"Toko: "}<Text style={{color:'black', fontSize:15}}>{section.key[0].store_name}</Text>
                         </Text>
@@ -59,7 +36,7 @@ class ShopFlatlist extends Component{
     }
     renderItem = ({item, index}) => {
         return (
-            <View style={{flexDirection:'column', marginTop: 15, paddingRight:20, backgroundColor:'blue'}}>
+            <View style={{flexDirection:'column', marginTop: 15, paddingRight:20}}>
                 <View style={{flexDirection:'row', alignItems:'center', marginLeft:-0}}>
                     <CheckBox checked={true}/>
                     <ImageBackground style={{height:60, width:60}} source={require('../../Assets/img/img.png')}></ImageBackground>
@@ -69,12 +46,12 @@ class ShopFlatlist extends Component{
                         </Text>
                         <Text style={{marginLeft:10 ,color:'#FF5722', fontWeight:'600'}}>{"Rp"+item.price}</Text>
                     </View>
-                    <ImageBackground style={{height:26, width:26, marginTop:-30}} source={require('../../Assets/img/recycle.png')}></ImageBackground>
+                    <ImageBackground style={{height:26, width:26, position: "absolute", top: 0, right: 0}} source={require('../../Assets/img/recycle.png')}></ImageBackground>
                 </View>
                 <View style={{flexDirection:'row-reverse', alignItems:'center', marginRight:-0, marginTop: 20, marginBottom: 10}}>
                     <ImageBackground style={{height:26, width:26, marginLeft:5}} source={require('../../Assets/img/plus.png')}></ImageBackground>
                         <Text style={{marginLeft:3, color:'black'}}>
-                            {item.total}
+                            {item.qty}
                         </Text>
                     <ImageBackground style={{height:26, width:26, marginLeft:5}} source={require('../../Assets/img/min.png')}></ImageBackground>
                     <ImageBackground style={{height:26, width:26, marginLeft:5}} source={require('../../Assets/img/love.png')}></ImageBackground>

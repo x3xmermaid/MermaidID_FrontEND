@@ -4,12 +4,15 @@ import {connect} from 'react-redux'
 import ListDetail from '../Component/Account/listDetail'
 import DetailImage from '../Component/Account/imageDetail'
 import AccountHeader from '../Components/Header/AccountHeader';
-import { getUser } from '../Public/redux/reducers/product';
+import { fetchUser } from '../Public/redux/action/user';
+// import console = require('console');
 
 class Profile extends Component {
-
+    constructor(){
+        super();
+    }
     getUser = () => {
-        this.props.dispatch(getUser())
+        this.props.dispatch(fetchUser())
     }
 
     componentDidMount() {
@@ -18,18 +21,19 @@ class Profile extends Component {
 
     render() {
         const {navigate} = this.props.navigation;
+        console.log(this.props.user.user)
         return(
-<View>
-    <AccountHeader 
-        sellPress={()=>navigate('shop')}
-    />
-<View style={style.parentView}>
+            <View>
+                <AccountHeader 
+                    sellPress={()=>navigate('shop')}
+                />
+            <View style={style.parentView}>
                 <ScrollView style={{marginTop:heightWindow*0.14}} showsVerticalScrollIndicator={false}>
                 <View style={style.cardBox}>
                     <View style={[style.detailBox, {marginBottom:10}]}>
-                        <ImageBackground source={require('../Assets/img/img.png')} style={style.imageBox}/>
+                        <ImageBackground source={{uri: this.props.user.user.img_user}} style={style.imageBox}/>
                         <View style={style.textBox}>
-                            <Text style={style.boldText}>{this.props.data.full_name}</Text>
+                            <Text style={style.boldText}>{this.props.user.user.full_name}</Text>
                             <Text style={{fontStyle:"italic"}}>{"Verified Account"}</Text>
                         </View>
                     </View>        
@@ -233,7 +237,7 @@ const style = StyleSheet.create({
 
 const mapStateToProps = ( state ) => {
     return {
-        product:state.product
+        user: state.user
     }
 }
 
