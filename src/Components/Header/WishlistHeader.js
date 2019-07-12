@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements';
-import {withNavigation} from 'react-navigation';
 
 class WishlistHeader extends Component {
     render() {
@@ -11,13 +10,12 @@ class WishlistHeader extends Component {
                 <View style={styles.headerComponent}>
                     <View style={{flex:1, alignContent: 'flex-start', flexDirection:'row'}}>
                         <View style={{ flex: 1, left: 2, top: 3 }}>
-                            <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Home')}>
+                            <TouchableOpacity>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 7 }}>
-                            <Text style={{fontSize: 17, color: 'black'}}>Wishlist</Text>
+                            <Text style={{fontSize: 20, color: 'black'}}>Wishlist</Text>
                         </View>
                     </View>
                 </View>
@@ -29,10 +27,11 @@ class WishlistHeader extends Component {
 const styles = StyleSheet.create({
     header: { 
         position: "absolute",
-        width: 360,
+        width: '100%',
         height: 52,
         backgroundColor: '#ffffff',
         zIndex: 5,
+        elevation: 2,
         shadowColor: "#000",
         shadowOffset: {
             width: 0, height: 5
@@ -48,4 +47,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default withNavigation(WishlistHeader);
+export default WishlistHeader;

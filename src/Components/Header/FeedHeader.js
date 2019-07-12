@@ -53,10 +53,11 @@ class FeedHeader extends Component {
 const styles = StyleSheet.create({
     header: { 
         position: "absolute",
-        width: 360,
+        width: '100%',
         height: 94,
         backgroundColor: '#ffffff',
         zIndex: 5,
+        elevation: 2,
         shadowColor: "#000",
         shadowOffset: {
             width: 0, height: 5

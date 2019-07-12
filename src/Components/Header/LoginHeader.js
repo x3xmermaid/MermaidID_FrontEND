@@ -4,14 +4,13 @@ import { Icon } from 'react-native-elements';
 
 class LoginHeader extends Component {
     render() {
-        // const {screenLocation} = this.props;
-        const screenLocation = 'login';
+        const { screenLocation, backPress, rightPress } = this.props;
         return(
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
                     <View style={{flex:9, alignContent: 'flex-start', flexDirection:'row'}}>
-                        <View style={{ flex: 1, left: 2, top: 1 }}>
-                            <TouchableOpacity>
+                        <View style={{ flex: 1, margin: 1 }}>
+                            <TouchableOpacity onPress={ backPress }>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
@@ -26,16 +25,18 @@ class LoginHeader extends Component {
                         </View>
                     </View>
                     <View style={{flex:2, flexDirection:'row'}}>
-                        <View style={{left:10}}>
-                            <TouchableOpacity>
+                        <View style={{marginLeft:10}}>
                                 {
                                     screenLocation === 'login' ? (
-                                        <Text>Daftar</Text>
+                                        <TouchableOpacity onPress={rightPress}>
+                                            <Text style={{color:'#42b549'}}>Daftar</Text>
+                                        </TouchableOpacity>
                                     ) : (
-                                        <Text>Masuk</Text>
+                                        <TouchableOpacity onPress={rightPress}>
+                                            <Text style={{color:'#42b549'}}>Masuk</Text>
+                                        </TouchableOpacity>
                                     )
                                 }
-                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>
@@ -47,10 +48,11 @@ class LoginHeader extends Component {
 const styles = StyleSheet.create({
     header: { 
         position: "absolute",
-        width: 360,
+        width: '100%',
         height: 52,
         backgroundColor: '#ffffff',
         zIndex: 5,
+        elevation: 2,
         shadowColor: "#000",
         shadowOffset: {
             width: 0, height: 5

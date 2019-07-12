@@ -19,7 +19,7 @@ class HomeHeader extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('AddImage')}>
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='mail'/>
                             </TouchableOpacity>
                         </View>
@@ -38,10 +38,11 @@ class HomeHeader extends Component {
 const styles = StyleSheet.create({
     header: { 
         position: "absolute",
-        width: 360,
+        width: '100%',
         height: 53,
         backgroundColor: '#ffffff',
         zIndex: 5,
+        elevation: 2,
         shadowColor: "#000",
         shadowOffset: {
             width: 0, height: 5

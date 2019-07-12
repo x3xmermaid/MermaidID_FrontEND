@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import { Text, View , StyleSheet, ImageBackground, ScrollView, Dimensions} from 'react-native';
-import ListDetail from '../Component/Account/listDetail'
-import DetailImage from '../Component/Account/imageDetail'
+import { Text, View , StyleSheet, ImageBackground, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import ListDetail from '../Component/Account/listDetail';
+import DetailImage from '../Component/Account/imageDetail';
+import Accountheader from '../Components/Header/AccountHeader';
 
 
 class Shop extends Component {
     render() {
         return(
-            <View style={style.parentView}>
-                <ScrollView  showsVerticalScrollIndicator={false}>
-                <View style={style.cardBox}>
+            <View>
+                <Accountheader 
+                    buyPress={()=>navigate('Profile')}
+                />
+                <View style={style.parentView}>
+                    <ScrollView  showsVerticalScrollIndicator={false}>
+                        <View style={style.cardBox}>
                     <View style={style.detailBox}>
                         <ImageBackground source={require('../Assets/img/img.png')} style={style.imageBox}/>
                         <View style={style.textBox}>
@@ -59,10 +64,11 @@ class Shop extends Component {
                     <View style={style.line}/>
                         <Text style={[style.boldText, { marginLeft:10}]}>
                         {"Produk"}</Text>
-                    
-                    <View style={[style.cardBox, {borderRadius:10, elevation:1, backgroundColor:'#fafafa'}]}>
-                        <Text style={{textAlign:'center', color:'#d1cfcf', fontWeight:'bold'}}>{"+ Tambah Produk"}</Text>
-                    </View>
+                    <TouchableOpacity>
+                        <View style={[style.cardBox, {borderRadius:10, elevation:1, backgroundColor:'#fafafa'}]}>
+                                <Text style={{textAlign:'center', color:'#d1cfcf', fontWeight:'bold'}}>{"+ Tambah Produk"}</Text>
+                        </View>
+                    </TouchableOpacity>
                         <ListDetail textData={{
                             Text2: "Pengaturan Produk",
                             Text3: "Selesaikan kelengkapan detai produk",
@@ -97,10 +103,10 @@ class Shop extends Component {
                         image: 1
                     }}/>
                 <View style={style.line}/>
-
-
             </ScrollView>
             </View>
+            </View>
+            
         )
     }
 }
@@ -113,6 +119,7 @@ const style = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: '30%'
         // padding: 10,
     },
     cardBox: {
