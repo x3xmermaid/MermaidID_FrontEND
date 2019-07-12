@@ -8,12 +8,13 @@ import Account from '../Screens/Account';
 import Profile from '../Screens/Profile';
 import Wishlist from '../Screens/Wishlist';
 import DetailProduct from '../Screens/Detail';
+import Checkout from '../Screens/Checkout'
 import HomeHeader from '../Components/Header/HomeHeader';
 
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Cart,
+		Home: Checkout,
 		Feed: Feed,
 		'Official Store': Cart,
 		Cart: Cart,
