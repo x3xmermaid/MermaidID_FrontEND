@@ -19,11 +19,15 @@ import AddProductDetail from '../Screens/AddProductDetail';
 import EditImage from '../Screens/EditImage';
 import BottomNav from '../Components/BottomNav/BottomNav';
 import Shop from '../Screens/Shop';
+import AddStoreDetail from '../Screens/RegisterPage/AddStoreDetail';
+import ImportHome from '../Screens/RegisterPage/ImportHome';
+import AddStorePage from '../Screens/RegisterPage/AddStorePage';
+import VerificationPage from '../Screens/VerificationPage'
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Login,
-		Feed: AddProduct,
+		Home: ImportHome,
+		Feed: AddStoreDetail,
 		'Official Store': Cart,
 		Keranjang: Cart,
 		AKun: EditImage
@@ -75,6 +79,9 @@ const RootNavigator = createStackNavigator(
 		AddImage: {screen: AddImage},
 		AddProductDetail: {screen: AddProductDetail},
 		EditImage: {screen: EditImage},
+		AddStorePage: {screen: AddStorePage},
+		AddStoreDetail: {screen: AddStoreDetail},
+		VerificationPage: {screen: VerificationPage}
 	},
 	{
 		mode:'modal',

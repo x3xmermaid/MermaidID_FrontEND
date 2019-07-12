@@ -1,0 +1,75 @@
+import React, { Component } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
+import { Input } from 'react-native-elements';
+import VerificationHeader from '../Components/Header/VerificationHeader';
+
+const winWidth = Dimensions.get('window').width;
+const winHeight = Dimensions.get('window').height;
+
+class VerificationPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: '',
+        };
+    }
+
+    // _Verif=()=> {
+    //     const { text } = this.state;
+    //     this.props.dispatch(getUser(text))
+    //     this.props.navigation.navigate('Home')
+    // }
+
+    // componentDidMount = () => {
+    //     this._Verif()
+    // }
+
+    render() {
+        return (
+            <View style={styles.mainScreen}>
+                <VerificationHeader />
+                <View style={styles.component}>
+                    <Image 
+                        source={{ uri: 'http://www.andygagnonlandscapes.com/images/mail.png'}}
+                        style={{ width: 100, height: 100, margin: 20 }}/>
+                    <Text style={{fontWeight: 'bold', margin: 20 }}>Masukkan Kode Verifikasi</Text>
+                    <Text>Kode verifikasi telah dikirimkan melalui Email</Text>
+                    <Input
+                        maxLength={6}
+                        containerStyle={{ width: '90%' }}
+                        placeholder="Masukkan kode Verifikasi"
+                        labelStyle={{ marginTop: 16 }}
+                        onChangeText={(text) => this.setState({text})}
+                        style={{margin: 20 }}
+                    />
+                    <TouchableOpacity onPress={()=>this._Verif()} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50, margin:20, width: '80%'}}>
+                            <Text style={{fontSize: 20, color: 'white', marginTop: 8}}>Selanjutnya</Text>
+                    </TouchableOpacity>
+                    <Text style={{color: 'green'}}>Kirim Ulang Kode</Text>
+                </View>
+             </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create(
+    {
+        mainScreen: {
+            flex:1,
+            backgroundColor:'#FFF',
+            alignItems:'flex-start',
+            flexDirection:'column'
+        },
+        component: {
+            flex:1,
+            marginLeft: winWidth*0.1,
+            justifyContent: 'center',
+            marginTop: winHeight*0.1,
+            position: 'absolute',
+            flexDirection: 'column',
+            alignItems: 'center'
+        }
+    }
+)
+
+export default VerificationPage;

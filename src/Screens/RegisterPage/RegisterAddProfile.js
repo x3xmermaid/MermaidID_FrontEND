@@ -43,8 +43,6 @@ class RegisterAddProfile extends Component {
                             onChangeText={(text) => {this.setState({productName: text})}}
                         />
                     </View>
-                    
-                    
                     <View style={{top:28}}>
                         <TouchableOpacity onPress={()=>navigate('Verification')} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
                             <Text style={{fontSize: 20, color: 'white', margginTop:10}}>Simpan</Text>

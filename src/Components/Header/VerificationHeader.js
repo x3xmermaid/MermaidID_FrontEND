@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements';
+import {withNavigation} from 'react-navigation';
 
 class VerificationHeader extends Component {
     render() {
@@ -10,7 +11,7 @@ class VerificationHeader extends Component {
                 <View style={styles.headerComponent}>
                     <View style={{flex:1, alignContent: 'flex-start', flexDirection:'row'}}>
                         <View style={{ flex: 1, left: 2, top: 3 }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default VerificationHeader;
+export default withNavigation(VerificationHeader);
