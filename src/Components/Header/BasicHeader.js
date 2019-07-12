@@ -12,12 +12,12 @@ class WishlistHeader extends Component {
                     <View style={{flex:1, alignContent: 'flex-start', flexDirection:'row'}}>
                         <View style={{ flex: 1, left: 2, top: 3 }}>
                             <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Home')}>
+                            onPress={() => this.props.navigation.goBack()}>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 7 }}>
-                            <Text style={{fontSize: 17, color: 'black'}}>Wishlist</Text>
+                            <Text style={{fontSize: 17, color: 'black'}}>{this.props.headerTitle}</Text>
                         </View>
                     </View>
                 </View>

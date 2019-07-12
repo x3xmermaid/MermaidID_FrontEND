@@ -2,8 +2,9 @@ import React,{Component} from  'react';
 import {FlatList,Text,TouchableOpacity,View,Image,StyleSheet,RefreshControl} from 'react-native';
 import {Card,Rating} from 'react-native-elements'
 import {Product} from '../Assets/dummy'
-import {connect} from 'react-redux';
+
 import CardProduct from '../Components/CardProduct';
+import {connect} from 'react-redux';
 import {getProduct} from '../Public/redux/action/product';
 
 class CardFlatList extends Component {
@@ -15,6 +16,7 @@ class CardFlatList extends Component {
     componentDidMount() {
         this.getProduct();
     }
+    
 
     _keyExtractor = (item,index) => item.id
 
@@ -38,7 +40,8 @@ class CardFlatList extends Component {
             //data={Product.filter(products => products.id !== 0)}
             data={this.props.product.productData}
             renderItem={this.renderItem}
-            // //refreshing={this.props.product.isLoading}
+            refreshing={this.props.product.isLoading}
+            onRefresh={this.getProduct}
             // refreshControl={<RefreshControl
             //     refreshing={this.props.product.isLoading}
             //     onRefresh={()=>this.getProduct()}

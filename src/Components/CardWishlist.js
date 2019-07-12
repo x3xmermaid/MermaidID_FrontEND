@@ -2,19 +2,31 @@ import React,{Component} from 'react';
 import {View,Text,TouchableOpacity,FlatList,ScrollView,StyleSheet} from 'react-native';
 import {Card,SearchBar,Button, Image} from 'react-native-elements';
 import {Product,wishlistdata} from '../Assets/dummy';
+import {connect} from 'react-redux';
+import {getWishlist} from '../Public/redux/action/product';
 
 class CardWishlist extends Component {
     constructor(props){
         super(props);
         this.state={
-            wishlistProduct:Product
+            //wishlistProduct:Product
         }
     }
+
+    getDataWishlist = () => {
+        this.props.dispatch(getWishlist())
+    }
+
+    componentDidMount(){
+        this.getDataWishlist();
+    }
+
+   
     renderItem=({item,index}) => (
         
         <View style={{flex:1,flexGrow:1}}>
                 <Card 
-                image={{uri:item.image}}
+                image={{uri:item.product_image}}
                 imageStyle={styles.ImageIconStyle}
                 containerStyle={{
                 flex:1,
@@ -26,10 +38,10 @@ class CardWishlist extends Component {
 
                 
                 }}>
-                    <Text style={styles.ProductNameStyle} numberOfLines={2}>{item.title}</Text>
+                    <Text style={styles.ProductNameStyle} numberOfLines={2}>{item.product_name}</Text>
                    <Text style={styles.PriceTextStyle}>Rp {item.price}</Text>
                     <View style={{marginLeft:3,flexDirection:'column',paddingBottom:5}}>
-                    <Text style={styles.storeName}>Vionita Shop</Text>
+                    <Text style={styles.storeName}>{item.store_name}</Text>
                     <View style={{flexDirection:'row'}}>
                     <Image
                     source={{uri:'http://www.sclance.com/pngs/location-icon-png-transparent/location_icon_png_transparent_810746.png'}}
@@ -80,8 +92,9 @@ class CardWishlist extends Component {
             <View style={{flex:1,flexDirection:'row',alignContent:'flex-start'}}>
             <FlatList
             columnWrapperStyle={{justifyContent:'flex-start' }}
-            data={this.state.wishlistProduct.filter(Products => wishlistdata.indexOf(Products.id) !== -1)}
-            renderItem={this.renderItem}
+            //data={this.state.wishlistProduct.filter(Products => wishlistdata.indexOf(Products.id) !== -1)}
+            data={this.props.product.wishlistData}
+            renderItem={this.renderItem} 
             numColumns={2}
             keyExtractor={this._keyExtractor}
             horizontal={false}
@@ -94,7 +107,16 @@ class CardWishlist extends Component {
     }
 }
 
-export default CardWishlist ;
+//export default CardWishlist ;
+
+
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product
+    }
+}
+
+export default connect(mapStateToProps)(CardWishlist);
 
 const styles=StyleSheet.create ({
     ImageIconStyle: {

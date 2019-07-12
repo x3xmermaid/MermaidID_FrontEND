@@ -100,7 +100,7 @@ class ProductPhotoCarousel extends Component {
                     <Divider style={{backgroundColor:'#E9E9E9',height:1}}/>
                     <Text>Stock 50 ></Text>
                     <View style={{flexDirection:'row',marginLeft:5}}>
-                    <Text style={style.ratingText}>{this.state.productData[0].rating}</Text>
+                    <Text style={style.ratingText}>{parseFloat(this.state.productData[0].rating).toFixed(1)}</Text>
                     <Icon
                     containerStyle={{marginTop:5,marginLeft:2}}
                     name='star'

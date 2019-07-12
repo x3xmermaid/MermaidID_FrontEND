@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
 class ProductHeader extends Component {
     render() {
@@ -8,7 +9,9 @@ class ProductHeader extends Component {
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
                     <View style={{flex:2}}>
-                        <TouchableOpacity style={{alignItems:"flex-start", left:15}}>
+                        <TouchableOpacity
+                        onPress={ ()=> this.props.navigation.goBack()}
+                        style={{alignItems:"flex-start", left:15}}>
                             <Icon type='antdesign' name='arrowleft' color='#9fa6b0'/>
                         </TouchableOpacity>
                     </View>
@@ -57,4 +60,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ProductHeader;
+export default withNavigation(ProductHeader);
+//export default ProductHeader;

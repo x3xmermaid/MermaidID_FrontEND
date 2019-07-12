@@ -9,13 +9,14 @@ import Profile from '../Screens/Profile';
 import Wishlist from '../Screens/Wishlist';
 import DetailProduct from '../Screens/Detail';
 import HomeHeader from '../Components/Header/HomeHeader';
+import ProfileSettings from '../Screens/ProfileSettings';
 
 
 const BottomNavigation = createBottomTabNavigator(
 	{
 		Home: Home,
 		Feed: Feed,
-		'Official Store': Cart,
+		'Official Store': ProfileSettings,
 		Cart: Cart,
 		Account: Profile
 	},

@@ -11,11 +11,11 @@ class ViewCard extends Component {
     
     renderItem = ({item,index}) => (
         
-        <View style={{margin:15}} key={item.id}>
-        <View style={{flexDirection:'row',paddingTop:10}}>
+        <View style={{margin:10}} key={item.id}>
+        <View style={{flexDirection:'row',paddingTop:10,marginStart:10}}>
         <Image
         source={{uri:item.profilePhoto}}
-        style={{width:32,height:32,marginRight:10}}
+        style={{width:32,height:32,marginRight:5}}
         />
         <Text style={{fontWeight:'800',fontSize:14}}>{item.accountName}{'\n'}
         <Text style={{fontWeight:'100',fontSize:12}}>{item.datetime}</Text>
@@ -23,7 +23,7 @@ class ViewCard extends Component {
          
          <Button title="Follow"
          buttonStyle={{backgroundColor:'#51B94A',borderRadius:5 ,width:70}}
-        containerStyle={{marginLeft:70}}
+        containerStyle={{marginLeft:80}}
          />
          
          <TouchableOpacity>
@@ -54,10 +54,12 @@ class ViewCard extends Component {
         return(
         <View> 
             {/* <FeedHeader/> */}
-            <View style={{flex:1,flexDirection:'column',backgroundColor:'#FFF'}}>
+            <View style={{flex:1,flexDirection:'column',backgroundColor:'#FFF',justifyContent:'center'}}>
           <FlatList
+          contentContainerStyle={{justifyContent:'center'}}
           data={FeedData}
           renderItem={this.renderItem}
+          showsVerticalScrollIndicator={false}
           />
           </View>
           </View>
