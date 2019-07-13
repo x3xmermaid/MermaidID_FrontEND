@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import BasicHeader from '../Components/Header/BasicHeader';
 
-export default class Message extends Component {
+export default class Notification extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <BasicHeader 
-                    title='Message'
+                    title='Notification'
                 />
                 <View style={styles.container2}>
                     <Text style={{fontWeight:'bold', marginTop: '50%' }}>THIS FEATURE IS UNDER  DEVELOPMENT</Text>

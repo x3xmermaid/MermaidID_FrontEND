@@ -24,6 +24,8 @@ import AddStorePage from '../Screens/RegisterPage/AddStorePage';
 import VerificationPage from '../Screens/VerificationPage';
 import OfficialStore from '../Screens/OfficialStore';
 import RegisterAddProfile from '../Screens/RegisterPage/RegisterAddProfile';
+import Notification from '../Screens/Notif';
+import Message from '../Screens/Message';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
@@ -91,8 +93,9 @@ const RootNavigator = createStackNavigator(
 		Feed: {screen: Feed},
 		Checkout: {screen: Checkout},
 		OfficialStore: {screen: OfficialStore},
-		RegisterAddProfile: {screen: RegisterAddProfile}
-
+		RegisterAddProfile: {screen: RegisterAddProfile},
+		Message: {screen: Message},
+		Notification: {screen: Notification}
 	},
 	{
 		mode:'modal',

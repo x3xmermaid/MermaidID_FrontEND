@@ -19,6 +19,7 @@ class Login extends Component {
     _login = () => {
         // console.log(hihay)
         this.props.dispatch(postLoginLogin(this.state.email))
+        this.props.navigation.navigate('VerificationPage')
     }
 
     render() {

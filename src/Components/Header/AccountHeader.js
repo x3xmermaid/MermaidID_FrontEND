@@ -38,7 +38,7 @@ class AccountHeader extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1.5}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=>this.navigation.navigate('Notification')}>
                                 <Icon size={22} color='#9fa6b0' type="font-awesome" name='bell'/>
                             </TouchableOpacity>
                         </View>
