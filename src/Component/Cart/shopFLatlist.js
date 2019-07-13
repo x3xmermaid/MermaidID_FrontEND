@@ -45,7 +45,7 @@ class ShopFlatlist extends Component{
             <View style={{flexDirection:'column', marginTop: 15, paddingRight:20}}>
                 <View style={{flexDirection:'row', alignItems:'center', marginLeft:-0}}>
                     <CheckBox checked={true}/>
-                    <ImageBackground style={{height:60, width:60}} source={require('../../Assets/img/img.png')}></ImageBackground>
+                    <ImageBackground style={{height:60, width:60}} source={{uri : item.product_image}}></ImageBackground>
                     <View style={{flexDirection:'column'}}>
                         <Text style={{marginLeft:10, marginTop: -30 ,color:'black'}}>
                             {item.product_name}
