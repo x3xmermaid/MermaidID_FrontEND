@@ -19,8 +19,12 @@ class Profile extends Component {
         }
     }
 
-    componentDidMount() {
-        this.getUser()
+    componentDidMount(){
+        if(this.props.login.isLogin === false){
+            this.props.navigation.navigate('Login')
+        }else{
+            this.getUser()
+        }
     }
 
     render() {

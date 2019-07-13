@@ -12,7 +12,7 @@ class CartHeader extends Component {
                 <View style={styles.headerComponent}>
                     <View style={{flex:1, alignContent: 'flex-start', flexDirection:'row'}}>
                         <View style={{ flex: 2, left: 2, top: 3 }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=>this.navigation.goBack()}>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
