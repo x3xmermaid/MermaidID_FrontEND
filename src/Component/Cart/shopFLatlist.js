@@ -12,11 +12,11 @@ class ShopFlatlist extends Component{
         super(props);
     }
     componentDidMount(){
-        if(this.props.login.isLogin === false){
-            this.props.navigation.navigate('Login')
-        }else{
+        // if(this.props.login.isLogin === false){
+            // this.props.navigation.navigate('Login')
+        // }else{
             this.getData()
-        }
+        // }
 
     }
     getData = () => {
