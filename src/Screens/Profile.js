@@ -33,7 +33,7 @@ class Profile extends Component {
         return(
             <View>
                 <AccountHeader 
-                    sellPress={()=>navigate('shop')}
+                    sellPress={()=>navigate('Shop')}
                 />
             <View style={style.parentView}>
                 <ScrollView style={{marginTop:heightWindow*0.14}} showsVerticalScrollIndicator={false}>
