@@ -5,6 +5,7 @@ import CartHeader from '../Components/Header/CartHeader';
 import FlatCard from '../Component/Checkout/shopFLatlist'
 import AddressCard from '../Component/Checkout/addressCard'
 import {updateCheckout} from '../Public/redux/action/checkout'
+import {fetchCart} from '../Public/redux/action/cart'
 import {connect} from 'react-redux'
 import { withNavigation } from 'react-navigation';
 
@@ -20,6 +21,7 @@ class Checkout extends Component {
     }
     buyed = () => {
         this.props.dispatch(updateCheckout(this.props.cart.cartProduct))
+        this.props.dispatch(fetchCart(this.props.login.verify[0].id_user))
         this.props.navigation.navigate('Home')
     }
     render() {
@@ -128,7 +130,8 @@ const style = StyleSheet.create({
 const mapStateToProps = ( state ) => {
     return {
         product:state.product,
-        cart: state.cart
+        cart: state.cart,
+        login: state.login
     }
 }
 

@@ -12,19 +12,20 @@ class ShopFlatlist extends Component{
     constructor(props){
         super(props);
     }
-    componentDidMount(){
-        if(this.props.login.isLogin === false){
-            this.props.navigation.navigate('Login')
-        }else{
-            this.getData()
-        }
+    // componentDidMount(){
+    //     if(this.props.login.isLogin === false){
+    //         this.props.navigation.navigate('Login')
+    //     }else{
+    //         this.getData()
+    //     }
 
-    }
-    getData = () => {
-        // if(this.prop)
-        this.props.dispatch(fetchCart())
-    }
+    // }
+    // getData = () => {
+    //     // if(this.prop)
+    //     this.props.dispatch(fetchCart(this.props.login.verify[0].id_user))
+    // }
     renderStore = ({section}) => {
+        
         return (
             <View style={style.shadow}>
                 <View style={{flexDirection:'row', alignItems:'center', marginLeft:-0}}>
@@ -71,6 +72,7 @@ class ShopFlatlist extends Component{
     }
     _keyExtractor = (item, index) => item.id
     render(){
+        // console.log("this.props.login.verify[0].id_user")
         return(
             <View style={style.flatCard}>
                 {/* <FlatList
