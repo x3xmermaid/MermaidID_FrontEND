@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
 import LoginHeader from '../Components/Header/LoginHeader';
+import {connect} from 'react-redux'
+import {postLogin, postLoginLogin} from '../Public/redux/action/login'
+// import console = require('console');
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
@@ -9,16 +12,18 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: '',
+            email: '',
         };
     }
 
-    Login = () => {
-        this.props.dispatch(getCategories())
+    _login = () => {
+        // console.log(hihay)
+        this.props.dispatch(postLoginLogin(this.state.email))
     }
 
     render() {
         const { navigate, goBack } = this.props.navigation;
+        // console.log(this.state.text)
         return (
             <View style={styles.mainScreen}>
                 <LoginHeader
@@ -37,12 +42,12 @@ class Login extends Component {
                             maxLength={40}
                             selectionColor='#42b549'
                             style={{width: winWidth*0.85}}
-                            onChangeText={(text) => this.setState({text})}
+                            onChangeText={(text) => this.setState({email:text})}
                             value={this.state.text}
                         />
                     </View>
                     <View style={{marginTop: 30}}>
-                        <TouchableOpacity onPress={()=>navigate('Verification')} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
+                        <TouchableOpacity onPress={() => this._login()} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
                             <Text style={{fontSize: 20, color: 'white', top: 8}}>Selanjutnya</Text>
                         </TouchableOpacity>
                     </View>
@@ -54,17 +59,22 @@ class Login extends Component {
                     <View style={{marginTop: '10%',alignContent: 'space-around'}}>
                         <View style={{}}>
                             <TouchableOpacity style={styles.button}>
-                                <Image source={{uri: 'https://ecs7.tokopedia.net/assets-tokopedia-lite/v2/atreus/production/e03783d5.png'}} />
+                                <Image style={styles.image} source={require('../Assets/img/google.png')} />
+                                <Text style={{width: '35%'}} />                                
                                 <Text style={styles.font}>Google</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{paddingTop: 20}}>
                             <TouchableOpacity style={styles.button}>
+                                <Image style={styles.image} source={require('../Assets/img/facebook-512.png')} />
+                                <Text style={{width: '32%'}} />                                
                                 <Text style={styles.font}>Facebook</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{paddingTop: 20}}>
                             <TouchableOpacity style={styles.button}>
+                                <Image style={styles.image} source={require('../Assets/img/yahoo.png')} />
+                                <Text style={{width: '35%'}} />
                                 <Text style={styles.font}>Yahoo</Text>
                             </TouchableOpacity>
                         </View>
@@ -105,7 +115,8 @@ const styles = StyleSheet.create(
             backgroundColor: 'white',
             borderRadius: 5,
             height: 50,
-            borderWidth:1
+            borderWidth:1,
+            flexDirection: 'row'
         },
         line : {
             borderTopWidth:1,
@@ -116,9 +127,21 @@ const styles = StyleSheet.create(
         font: {
             fontSize: 15,
             color: 'black',
-            top: '30%'
+            alignSelf: 'center'
+        },
+        image: {
+            width: 20,
+            height: 20
         }
     }
 )
 
-export default Login;
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(Login);

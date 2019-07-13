@@ -5,6 +5,7 @@ import {Button} from 'react-native-elements'
 import FlatItem from './itemFlatlist'
 import {connect} from 'react-redux'
 import {fetchCart} from '../../Public/redux/action/cart'
+// import console = require('console');
 
 class ShopFlatlist extends Component{
     constructor(props){
@@ -42,6 +43,8 @@ class ShopFlatlist extends Component{
         )
     }
     renderFooter = ({section}) => {
+        // console.log("qqq")
+        // console.log(section)
         return (
             <View style={style.shadow}>
                 {/* <View style={{flexDirection:'row', alignItems:'center', marginLeft:20, marginBottom:10}}>
@@ -61,7 +64,7 @@ class ShopFlatlist extends Component{
                 </View>
                 <View style={[style.promoCard, {justifyContent: 'space-between'}]}>
                   <Text style={{marginLeft: 5}}>{"Subtotal"}</Text>
-                  <Text style={{fontWeight:'500', marginRight:20}}>{"Rp. 200000"}</Text>
+                  <Text style={{fontWeight:'500', marginRight:20}}>{"Rp. "+section.total}</Text>
                 </View>
             </View>
         )
@@ -75,7 +78,7 @@ class ShopFlatlist extends Component{
                         <Text style={{marginLeft:10 ,color:'black', marginBottom:3}}>
                             {item.product_name}
                         </Text>
-                        <Text style={{marginLeft:10, fontSize:12, marginBottom:3}}>{item.qty+" Barang ("+item.berat+" kg)"}</Text>
+                        <Text style={{marginLeft:10, fontSize:12, marginBottom:3}}>{item.qty+" Barang 1 kg"}</Text>
                         <Text style={{marginLeft:10 ,color:'#FF5722', fontWeight:'600', marginBottom:3}}>{"Rp"+item.price}</Text>
                     </View>
                 </View>

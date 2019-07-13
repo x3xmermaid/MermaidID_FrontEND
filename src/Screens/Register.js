@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
 import LoginHeader from '../Components/Header/LoginHeader';
+import {connect} from 'react-redux'
+import {postLogin} from '../Public/redux/action/login'
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
@@ -12,7 +14,11 @@ class Register extends Component {
             Text: {},
         };
     }
-
+    _login = () => {
+        // console.log(hihay)
+        this.props.dispatch(postLogin(this.state.email))
+        this.props.navigation.navigate('VerificationPage')
+    }
     render() {
         const { navigate, goBack } = this.props.navigation;
         return (
@@ -28,10 +34,13 @@ class Register extends Component {
                     </View>
                     <View style={styles.inputLine}/>
                     <View>
-                        <TextInput allowFontScaling maxLength={40} selectionColor='#42b549' style={{width: winWidth*0.85}}/>
+                        <TextInput allowFontScaling maxLength={40} 
+                        selectionColor='#42b549' 
+                        onChangeText={(text) => this.setState({email:text})}
+                        style={{width: winWidth*0.85}}/>
                     </View>
                     <View style={{top:28}}>
-                        <TouchableOpacity onPress={()=>navigate('Verification')} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
+                        <TouchableOpacity onPress={()=>this._login()} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50}}>
                             <Text style={styles.registerButton}>Daftar</Text>
                         </TouchableOpacity>
                     </View>
@@ -41,12 +50,15 @@ class Register extends Component {
                     <View style={{marginTop:30, alignContent: 'space-around'}}>
                         <View style={{}}>
                             <TouchableOpacity style={styles.button}>
-                                <Image source={{uri: 'https://ecs7.tokopedia.net/assets-tokopedia-lite/v2/atreus/production/e03783d5.png'}} />
+                                <Image style={styles.image} source={require('../Assets/img/google.png')} />
+                                <Text style={{width: '35%'}} />                                
                                 <Text style={styles.font}>Google</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{paddingTop: 20}}>
                             <TouchableOpacity style={styles.button}>
+                                <Image style={styles.image} source={require('../Assets/img/facebook-512.png')} />
+                                <Text style={{width: '32%'}} />                                
                                 <Text style={styles.font}>Facebook</Text>
                             </TouchableOpacity>
                         </View>
@@ -87,7 +99,8 @@ const styles = StyleSheet.create(
             backgroundColor: 'white',
             borderRadius: 5,
             height: 50,
-            borderWidth:1
+            borderWidth:1,
+            flexDirection: 'row'
         },
         line : {
             borderTopWidth:1,
@@ -97,15 +110,27 @@ const styles = StyleSheet.create(
         },
         font: {
             fontSize: 15,
-            color: 'black',
-            top: '30%'
+            color: 'black'
         },
         registerButton: {
             fontSize: 18,
             color: 'white',
             top: '30%'
+        },
+        image: {
+            width: 20,
+            height: 20
         }
     }
 )
 
-export default Register;
+
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(Register);

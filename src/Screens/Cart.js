@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet, ImageBackground } from 'react-native';
 import CartHeader from '../Components/Header/CartHeader';
 import FlatCard from '../Component/Cart/shopFLatlist'
+import CartFooter from '../Components/BottomNav/BottomNavForCart'
 
 
 class Cart extends Component {
@@ -21,6 +22,7 @@ class Cart extends Component {
                     </View>
                         <FlatCard></FlatCard>
                 </ScrollView>
+                <CartFooter></CartFooter>
              </View> 
         )
     }

@@ -21,6 +21,15 @@ const storeReducer = function(state=initialState, action){
         case "FETCH_STORE_REJECTED":
             return  {...state, fetching:false, error: action.payload};
             break;
+        case 'ADD_STORE_PENDING':
+            return  {...state, fetching:true};
+            break;
+        case 'ADD_STORE_REJECTED':
+            return  {...state, fetching:false, error: action.payload};
+            break;
+        case 'ADD_STORE_FULFILLED':
+            return  {...state, fetching:false, store:[...state.store,action.payload.data]};
+            break;
         default:
             break;
     }

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import DetailHeader from '../Components/Header/ProductHeader';
 import ProductPhotoCarousel from '../Components/Detail/ProductPhotoCarousel';
 //import BottomCardDetail from '../Components/BottomNav/BottomNavForCart';
-import BottomCardDetail from '../Components/BottomNav/BottomNav';
+import BottomCartDetail from '../Components/BottomNav/BottomNav';
 
 class Detail extends Component {
     constructor(props){
@@ -26,7 +26,7 @@ class Detail extends Component {
                  />
                  
                 </ScrollView>
-                <BottomCardDetail
+                <BottomCartDetail
                 dataProduct={this.state.dataProduct}
                 />
                 

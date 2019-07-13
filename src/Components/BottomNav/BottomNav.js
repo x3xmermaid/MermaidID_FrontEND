@@ -11,15 +11,15 @@ class BottomNav extends Component {
 
     constructor(props){
         super(props);
-        console.log(this.props.dataProduct)
+        console.log(this.props.dataProduct[0].id)
     }
 
     addToCart = () => {
         
-        const id_product = 1;
+        const id_product = this.props.dataProduct[0].id;
         const id_user = 1;
         const qty= 1;
-        const total= 10;
+        const total= 1;
         const buyed=1;
         
     

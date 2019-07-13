@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import LoginHeader from '../Components/Header/LoginHeader';
+import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import VerificationHeader from '../Components/Header/VerificationHeader'
 
-class Login extends Component {
+class Verifikasi extends Component {
     render() {
         return (
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
@@ -27,4 +28,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Verifikasi;

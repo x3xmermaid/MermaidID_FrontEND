@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, View , Text, StyleSheet, Dimensions, ImageBackground, FlatList, SectionList} from 'react-native'
+import {TouchableOpacity, View , Text, StyleSheet, Dimensions, ImageBackground, FlatList, SectionList, navigation} from 'react-native'
 import {shop, Product} from '../../Assets/dummy'
 import {CheckBox} from 'react-native-elements'
 import FlatItem from './itemFlatlist'
@@ -12,9 +12,15 @@ class ShopFlatlist extends Component{
         super(props);
     }
     componentDidMount(){
-        this.getData()
+        // if(this.props.login.isLogin === false){
+            // this.props.navigation.navigate('Login')
+        // }else{
+            this.getData()
+        // }
+
     }
     getData = () => {
+        // if(this.prop)
         this.props.dispatch(fetchCart())
     }
     renderStore = ({section}) => {
@@ -119,7 +125,8 @@ const style = StyleSheet.create({
 const mapStateToProps = ( state ) => {
     return {
         product:state.product,
-        cart: state.cart
+        cart: state.cart,
+        login: state.login
     }
 }
 
