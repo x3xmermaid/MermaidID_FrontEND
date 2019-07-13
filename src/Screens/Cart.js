@@ -3,9 +3,24 @@ import { Text, View, ScrollView, StyleSheet, ImageBackground } from 'react-nativ
 import CartHeader from '../Components/Header/CartHeader';
 import FlatCard from '../Component/Cart/shopFLatlist'
 import CartFooter from '../Components/BottomNav/BottomNavForCart'
-
+import {connect} from 'react-redux'
+import {fetchCart} from '../Public/redux/action/cart'
 
 class Cart extends Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount(){
+        if(this.props.login.isLogin === false){
+            this.props.navigation.navigate('Login')
+        }else{
+            this.getData()
+        }
+    }
+    getData = () => {
+        // if(this.prop)
+        this.props.dispatch(fetchCart(this.props.login.verify[0].id_user))
+    }
     render() {
         return(
             <View style={{flex:1,alignItems:'flex-start',flexDirection:'column'}}>
@@ -68,4 +83,12 @@ const style = StyleSheet.create({
     }
 })
 
-export default Cart
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(Cart);

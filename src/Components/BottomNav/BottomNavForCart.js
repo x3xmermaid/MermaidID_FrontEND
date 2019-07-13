@@ -29,7 +29,7 @@ class BottomNavForCart extends Component {
                     </View>
                     <View style={{flex:1}} />
                     <View style={{flex:2}}>
-                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('AKun')} style={{flex:1, backgroundColor: '#ff6600', borderRadius: 6, borderColor: '#fff', borderWidth:3}}>
+                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Checkout')} style={{flex:1, backgroundColor: '#ff6600', borderRadius: 6, borderColor: '#fff', borderWidth:3}}>
                             <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 7, color: 'white'}}>Beli</Text>
                         </TouchableOpacity>
                     </View>
