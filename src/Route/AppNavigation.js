@@ -7,30 +7,27 @@ import Cart from '../Screens/Cart';
 import Profile from '../Screens/Profile';
 import Login from '../Screens/Login';
 import Wishlist from '../Screens/Wishlist';
-import DetailProduct from '../Screens/Detail';
 import Checkout from '../Screens/Checkout'
-import HomeHeader from '../Components/Header/HomeHeader';
-import shop from '../Screens/Shop';
 import Register from '../Screens/Register';
 import Verification from '../Screens/Verifikasi';
 import AddProduct from '../Screens/AddProduct';
 import AddImage from '../Screens/AddImage';
 import AddProductDetail from '../Screens/AddProductDetail';
 import EditImage from '../Screens/EditImage';
-import BottomNav from '../Components/BottomNav/BottomNav';
 import Shop from '../Screens/Shop';
 import AddStoreDetail from '../Screens/RegisterPage/AddStoreDetail';
-import ImportHome from '../Screens/RegisterPage/ImportHome';
 import AddStorePage from '../Screens/RegisterPage/AddStorePage';
-import VerificationPage from '../Screens/VerificationPage'
+import VerificationPage from '../Screens/VerificationPage';
+import OfficialStore from '../Screens/OfficialStore';
+import RegisterAddProfile from '../Screens/RegisterPage/RegisterAddProfile';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Register,
-		Feed: AddProduct,
-		'Official Store': Checkout,
+		Home: Home,
+		Feed: Feed,
+		'Official Store': OfficialStore,
 		Keranjang: Cart,
-		AKun: Checkout
+		Akun: Shop,
 	},
 	{
 		defaultNavigationOptions: ({navigation}) => ({
@@ -73,7 +70,7 @@ const RootNavigator = createStackNavigator(
 		Wishlist: {screen: Wishlist},
 		Login: {screen: Login},
 		Register: {screen: Register},
-		shop: {screen: shop},
+		Shop: {screen: Shop},
 		Verification: {screen: Verification},
 		AddProduct: {screen: AddProduct},
 		AddImage: {screen: AddImage},
@@ -81,7 +78,14 @@ const RootNavigator = createStackNavigator(
 		EditImage: {screen: EditImage},
 		AddStorePage: {screen: AddStorePage},
 		AddStoreDetail: {screen: AddStoreDetail},
-		VerificationPage: {screen: VerificationPage}
+		VerificationPage: {screen: VerificationPage},
+		Profile: {screen: Profile},
+		Cart: {screen: Cart},
+		Feed: {screen: Feed},
+		Checkout: {screen: Checkout},
+		OfficialStore: {screen: OfficialStore},
+		RegisterAddProfile: {screen: RegisterAddProfile}
+
 	},
 	{
 		mode:'modal',
