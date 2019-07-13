@@ -2,18 +2,29 @@ import React,{Component} from 'react';
 import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import {Card,Rating} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
+import product from '../Public/redux/reducers/product';
 
 class CardProduct extends Component {
 
     constructor(props){
-        super(props);        
+        super(props); 
+        this.state = {
+            dataProduct:[
+            {id:this.props.idProduct,
+            image:this.props.image,
+            product_name:this.props.titleProduct,
+            price:this.props.price,
+            rating:this.props.rating,
+            userRated:this.props.userRated}
+        ]       
+    }
     }
     render(){
         return(
             <View style={{flex:1,flexGrow:1}}>
             <TouchableOpacity
             activeOpacity={1}
-            onPress={() => this.props.navigation.navigate('Detail',{id:this.props.idProduct})}
+            onPress={() => this.props.navigation.navigate('Detail',this.state.dataProduct)}
             >
                 <Card 
                 

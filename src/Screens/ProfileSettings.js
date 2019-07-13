@@ -70,13 +70,8 @@ class ProfileSettings extends Component {
             console.log('User cancelled image picker');
           } else if (response.error) {
             console.log('ImagePicker Error: ', response.error);
-          } else if (response.customButton) {
-            console.log('User tapped custom button: ', response.customButton);
-            alert(response.customButton);
           } else {
             let source = response;
-            // You can also display the image using data:
-            // let source = { uri: 'data:image/jpeg;base64,' + response.data };
             this.setState({
               filePath: source,
             });
@@ -121,8 +116,6 @@ class ProfileSettings extends Component {
                 activeOpacity={1}>
                 <Image
                 source={{uri: Object.entries(this.state.filePath).length === 0 ? 'https://ecs7.tokopedia.net/img/cache/300/default_picture_user/default_toped-18.jpg': this.state.filePath.uri}}
-                //source={{uri: this.state.imageUri == '' ? 'https://ecs7.tokopedia.net/img/cache/300/default_picture_user/default_toped-18.jpg': this.state.imageUri}}
-                //source={{uri: this.state.filePath.uri }}
                 style={{width:deviceWidth-180,height:180,resizeMode:'stretch',marginRight:40,alignSelf:'center',marginTop:15,marginBottom:15}}
                 />
                 </TouchableOpacity>
@@ -221,12 +214,12 @@ class ProfileSettings extends Component {
             buttonStyle={{backgroundColor:'#03AC0E'}}
             onPress={() => this.props.dispatch(postImage(this.state.filePath.uri))  }
             />
-            <Button title="upload"
+            {/* <Button title="upload"
             titleStyle={{marginStart:-50,padding:5}}
             buttonStyle={{backgroundColor:'#03AC0E'}}
             //onPress={() => this.props.dispatch(postImage(this.state.filePath.uri))  }
             onPress={this.handleUploadPhoto}
-            />
+            /> */}
             </View>
               </ScrollView>
             </View>

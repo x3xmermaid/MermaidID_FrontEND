@@ -105,6 +105,48 @@ export const carousel = [
     }
 ]
 
+export const shop = [
+    {
+        id:1,
+        store: "Mermaid Store",
+        address: "jakarta",
+    },
+    {
+        id:2,
+        store: "Mermaid ID",
+        address: "Bandung"
+    },
+    {
+        id:3,
+        store: "Mermaid",
+        address: "Mermaid"
+    },
+]
+
+export const item = [
+    {
+        id:1,
+        item: "Indomie Goreng",
+        price: 100000,
+        berat: 5,
+        total: 1
+    },
+    {
+        id:2,
+        item: "Indomie Rebus",
+        price: 20000,
+        berat: 5,
+        total: 2
+    },
+    {
+        id:3,
+        item: "Mermaid Bakar",
+        price: 80000,
+        berat: 5,
+        total: 3
+    },
+]
+
 export const categoryHorizontal=[
     {
         id:1,
@@ -199,6 +241,30 @@ export const FeedData =[
         productTitle      : ''
     }
 ]
+
+export const Category = [
+    {
+        id              : 1,
+        categoryName    : 'Pakaian',
+        checked         : false
+    },
+    {
+        id              : 2,
+        categoryName    : 'Peralatan Rumah Tangga',
+        checked         : false
+    },
+    {
+        id              : 3,
+        categoryName    : 'Mainan',
+        checked         : false
+    },
+    {
+        id              : 4,
+        categoryName    : 'Makanan',
+        checked         : false
+    },
+]
+
 export const wishlistdata=[1,2,4,6,7]
 
 export const productPhoto=['https://apollo-singapore.akamaized.net/v1/files/g520mykbwai73-ID/image;s=966x691;olx-st/_1_.jpg','https://apollo-singapore.akamaized.net/v1/files/zzczh5fdqacc2-ID/image;s=966x691;olx-st/_1_.jpg']

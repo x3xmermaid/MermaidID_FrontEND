@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, TextInput, StyleSheet, Text } from 'react-native';
+import { View, TouchableOpacity, TextInput, StyleSheet, Text, Dimensions } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { withNavigation } from 'react-navigation'
+
+const winWidth = Dimensions.get('window').width;
+const winHeight = Dimensions.get('window').height;
 
 class AccountHeader extends Component {
     render() {
+        const { sellPress, buyPress } = this.props;
         return(
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
@@ -11,14 +16,14 @@ class AccountHeader extends Component {
                         <View>
                             <Text style={styles.account}>Akun Saya</Text>
                         </View>
-                        <View style={{flexDirection: 'row', padding:20, right: 55, top: 12}}>
+                        <View style={{flexDirection: 'row', padding:20, marginRight: 100, marginTop:30}}>
                             <View style={{right: 20}}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={ buyPress }>
                                     <Text>Beli</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{left:13}}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={ sellPress }>
                                     <Text>Jual</Text>
                                 </TouchableOpacity>
                             </View>
@@ -26,7 +31,9 @@ class AccountHeader extends Component {
                     </View> 
                     <View style={styles.iconList}>
                         <View style={{flex:1.5}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('EditProfile')}
+                            >
                                 <Icon size={22} color='#9fa6b0' type='octicon' name='gear'/>
                             </TouchableOpacity>
                         </View>
@@ -45,10 +52,11 @@ class AccountHeader extends Component {
 const styles = StyleSheet.create({
     header: { 
         position: "absolute",
-        width: 360,
+        width: '100%',
         height: 94,
         backgroundColor: '#ffffff',
         zIndex: 5,
+        elevation: 2,
         shadowColor: "#000",
         shadowOffset: {
             width: 0, height: 5
@@ -77,4 +85,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AccountHeader;
+export default withNavigation(AccountHeader);

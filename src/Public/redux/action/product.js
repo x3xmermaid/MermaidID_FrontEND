@@ -32,3 +32,10 @@ export const postImage = (photo,body) => {
         
 
     }
+
+export const postCart = (data) => {
+    return {
+        type:'ADD_CART',
+        payload:axios.post(`https://mermaidid.herokuapp.com/mqb/tb_cart`,data)
+    }
+}

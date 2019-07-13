@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 class CartHeader extends Component {
+    state= {
+        product: ''
+    }
     render() {
         return(
             <View style={styles.header}>
@@ -14,14 +17,20 @@ class CartHeader extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 6 }}>
-                            <Text style={{fontSize: 20, color: 'black'}}>Pengiriman</Text>
+                            <Text style={{fontSize: 20, color: 'black'}}>Keranjang</Text>
                         </View>
                     </View>
-                    <View style={{flex:1, flexDirection:'row'}}>
-                        <View style={{left:125}}>
-                            <TouchableOpacity>
-                                <Text>Hapus</Text>
-                            </TouchableOpacity>
+                    <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end', margin:13}}>
+                        <View>
+                            {
+                                this.state.product === '' ? (
+                                    <Text />
+                                ) : (
+                                <TouchableOpacity>
+                                    <Text>Hapus</Text>
+                                </TouchableOpacity>
+                                )
+                            }
                         </View>
                     </View>
                 </View>
@@ -33,10 +42,11 @@ class CartHeader extends Component {
 const styles = StyleSheet.create({
     header: { 
         position: "absolute",
-        width: 360,
+        width: '100%',
         height: 52,
         backgroundColor: '#ffffff',
         zIndex: 5,
+        elevation: 2,
         shadowColor: "#000",
         shadowOffset: {
             width: 0, height: 5

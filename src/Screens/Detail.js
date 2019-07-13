@@ -4,24 +4,34 @@ import {createAppContainer, createBottomTabNavigator, createStackNavigator} from
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DetailHeader from '../Components/Header/ProductHeader';
 import ProductPhotoCarousel from '../Components/Detail/ProductPhotoCarousel';
+//import BottomCardDetail from '../Components/BottomNav/BottomNavForCart';
+import BottomCardDetail from '../Components/BottomNav/BottomNav';
 
 class Detail extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            dataProduct:this.props.navigation.state.params
+        }
+        console.log(this.props.navigation.state.params.dataProduct);
+        console.log(this.props.navigation.state.params);
+    }
     render() {
         return(
-            
-            // <View style={{flex:1,flexDirection:'column'}}>
-                
-            // <DetailHeader/>
-            
-            // <ProductPhotoCarousel/>
-            
-            // </View>
-
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
                  <DetailHeader/>
                 <ScrollView style={{backgroundColor:'#FFF'}}>
-                 <ProductPhotoCarousel/>
+                 <ProductPhotoCarousel
+                 dataProduct={this.state.dataProduct}
+                 />
+                 
                 </ScrollView>
+                <BottomCardDetail
+                dataProduct={this.state.dataProduct}
+                />
+                
+                
+                
              </View> 
             
         )

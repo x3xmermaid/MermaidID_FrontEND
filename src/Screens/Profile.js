@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
 import { Text, View , StyleSheet, ImageBackground, ScrollView, Dimensions} from 'react-native';
+import {connect} from 'react-redux'
 import ListDetail from '../Component/Account/listDetail'
 import DetailImage from '../Component/Account/imageDetail'
+import AccountHeader from '../Components/Header/AccountHeader';
+import { fetchUser } from '../Public/redux/action/user';
+// import console = require('console');
 
 class Profile extends Component {
+    constructor(){
+        super();
+    }
+    getUser = () => {
+        this.props.dispatch(fetchUser())
+    }
+
+    componentDidMount() {
+        this.getUser()
+    }
+
     render() {
+        const {navigate} = this.props.navigation;
+        console.log(this.props.user.user)
         return(
+            <View>
+                <AccountHeader 
+                    sellPress={()=>navigate('shop')}
+                />
             <View style={style.parentView}>
-                <ScrollView  showsVerticalScrollIndicator={false}>
+                <ScrollView style={{marginTop:heightWindow*0.14}} showsVerticalScrollIndicator={false}>
                 <View style={style.cardBox}>
                     <View style={[style.detailBox, {marginBottom:10}]}>
-                        <ImageBackground source={require('../Assets/img/img.png')} style={style.imageBox}/>
+                        <ImageBackground source={{uri: this.props.user.user.img_user}} style={style.imageBox}/>
                         <View style={style.textBox}>
-                            <Text style={style.boldText}>{"Mermaid 4 You"}</Text>
+                            <Text style={style.boldText}>{this.props.user.user.full_name}</Text>
                             <Text style={{fontStyle:"italic"}}>{"Verified Account"}</Text>
                         </View>
                     </View>        
@@ -20,14 +41,14 @@ class Profile extends Component {
                         <View style={[style.detailBox, {alignItems:'center'}]}>
                             <ImageBackground source={require('../Assets/img/egg.png')} style={[style.imageBox, {height:24, width:24}]}/>
                             <View style={style.textBox}>
-                                <Text style={{fontColor: 'grey'}}>{"TokoPoints"}</Text>
+                                <Text style={{color: 'grey'}}>{"TokoPoints"}</Text>
                                 <Text style={style.boldText}>{"250 pt"}</Text>
                             </View>
                         </View>
                         <View style={[style.detailBox, {alignItems:'center'}]}>
                             <ImageBackground source={require('../Assets/img/discon.png')} style={[style.imageBox, {height:24, width:24}]}/>
                             <View style={style.textBox}>
-                                <Text style={{fontColor: 'grey'}}>{"Kupon Saya"}</Text>
+                                <Text style={{color:'grey'}}>{"Kupon Saya"}</Text>
                                 <Text style={style.boldText}>{"0 Kupon"}</Text>
                             </View>
                         </View>
@@ -139,18 +160,19 @@ class Profile extends Component {
 
             </ScrollView>
             </View>
+</View>
         )
     }
 }
 
-export default Profile
+
 let heightWindow = Dimensions.get('window').height
 let widthWindow = Dimensions.get('window').width
 const style = StyleSheet.create({
     parentView: {
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
         // padding: 10,
     },
     cardBox: {
@@ -212,3 +234,11 @@ const style = StyleSheet.create({
     }
 
 })
+
+const mapStateToProps = ( state ) => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect (mapStateToProps)(Profile);

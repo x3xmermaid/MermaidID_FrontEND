@@ -6,6 +6,7 @@ import {carousel,productPhoto,Product} from '../../Assets/dummy';
 import {connect} from 'react-redux';
 import { withNavigation } from 'react-navigation';
 
+
 const deviceWidth = Dimensions.get('window').width;
 
 class ProductPhotoCarousel extends Component {
@@ -15,11 +16,12 @@ class ProductPhotoCarousel extends Component {
             //entries:this.state.productData[0].length,
             entries:1,
             activeSlide:0,
-            selectedId:this.props.navigation.state.params.id,
-            productData:this.props.product.productData.filter(products => products.id_product == this.props.navigation.state.params.id)
+            selectedId:this.props.dataProduct,
+            productData:this.props.product.productData.filter(products => products.id_product == this.props.dataProduct[0].id)
         }
+        console.log(this.props.dataProduct[0].id);
     }
-
+    
     get pagination () {
         const { entries, activeSlide } = this.state;
         return (
@@ -63,7 +65,7 @@ class ProductPhotoCarousel extends Component {
 
     render(){
         let photo =[this.state.productData[0].product_image]
-        //console.warn(this.state.productData[0].product_image);
+        //console.warn(this.state.productData[0][0].product_image);
         return(
             <View style={{flex:1,flexDirection:'column',backgroundColor:'#fff'}}> 
             <View style={{flex:1,flexDirection:'column',backgroundColor:'#fff',maxHeight:400}}>
