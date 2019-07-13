@@ -20,6 +20,7 @@ class Checkout extends Component {
     }
     buyed = () => {
         this.props.dispatch(updateCheckout(this.props.cart.cartProduct))
+        this.props.navigation.navigate('Home')
     }
     render() {
         return(
@@ -62,7 +63,7 @@ class Checkout extends Component {
                         </View>
                         <TouchableOpacity onPress={() => this.buyed()}>
                             <View style={style.button}>
-                                <Text style={{color:'white'}}>{"Pilih Pembayaran"}</Text>
+                                <Text style={{color:'white'}}>{"bayar"}</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

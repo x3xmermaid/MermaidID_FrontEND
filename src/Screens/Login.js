@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
 import LoginHeader from '../Components/Header/LoginHeader';
 import {connect} from 'react-redux'
-import {postLogin} from '../Public/redux/action/login'
+import {postLogin, postLoginLogin} from '../Public/redux/action/login'
 // import console = require('console');
 
 const winWidth = Dimensions.get('window').width;
@@ -18,7 +18,7 @@ class Login extends Component {
 
     _login = () => {
         // console.log(hihay)
-        this.props.dispatch(postLogin(this.state.email))
+        this.props.dispatch(postLoginLogin(this.state.email))
     }
 
     render() {

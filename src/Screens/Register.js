@@ -17,7 +17,7 @@ class Register extends Component {
     _login = () => {
         // console.log(hihay)
         this.props.dispatch(postLogin(this.state.email))
-        this.props.navigation.navigate('Verification')
+        this.props.navigation.navigate('VerificationPage')
     }
     render() {
         const { navigate, goBack } = this.props.navigation;

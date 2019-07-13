@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import VerificationHeader from '../Components/Header/VerificationHeader';
+import {connect} from 'react-redux'
+import {postVerify} from '../Public/redux/action/login'
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
@@ -14,11 +16,11 @@ class VerificationPage extends Component {
         };
     }
 
-    // _Verif=()=> {
-    //     const { text } = this.state;
-    //     this.props.dispatch(getUser(text))
-    //     this.props.navigation.navigate('Home')
-    // }
+    _Verif=()=> {
+        const { text } = this.state;
+        this.props.dispatch(postVerify(this.props.login.user,text))
+        this.props.navigation.navigate('Home')
+    }
 
     // componentDidMount = () => {
     //     this._Verif()
@@ -72,4 +74,12 @@ const styles = StyleSheet.create(
     }
 )
 
-export default VerificationPage;
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(VerificationPage);

@@ -1,14 +1,19 @@
 import axios from 'axios'
 // import console = require('console');
 
-export const fetchLogin = () =>{
-    let link = `https://mermaidid.herokuapp.com/mqb/tb_store?where=tb_store+id_user+2`
-    // let link = `http://192.168.100.5:3001/manual/cart`
-    console.log(link)
+export const postVerify = (id,password) =>{
+    let link = `https://mermaidid.herokuapp.com/manual/register_auth/`+id[0].id_user
+    // console.log(id[0].id_user);
     return {
-        type: 'FETCH_STORE',
-        payload: axios.get(link)
-    }
+        type: 'VERIFY',
+        payload: axios({
+            method: 'post',
+            url: link,
+            data: {
+                password: password,
+            }           
+            })
+    } 
 }
 
 export const postLogin = (email) =>{
@@ -26,11 +31,34 @@ export const postLogin = (email) =>{
     } 
 }
 
-export const deleteStore = (id) =>{
-    let link = `http://192.168.6.119:3001/category?where=no+`+id
+export const postVerifyLogin = (id,password) =>{
+    let link = `https://mermaidid.herokuapp.com/manual/login_auth/`+id[0].id_user
+    // console.log(id[0].id_user);
     return {
-        type: 'DELETE_CATEGORY',
-        payload: axios.delete(link)
+        type: 'VERIFY_LOGIN',
+        payload: axios({
+            method: 'post',
+            url: link,
+            data: {
+                password: password,
+            }           
+            })
     } 
 }
+
+export const postLoginLogin = (email) =>{
+    console.log("email :"+email);
+    let link = `https://mermaidid.herokuapp.com/manual/login`
+    return {
+        type: 'LOGIN_USER',
+        payload: axios({
+            method: 'post',
+            url: link,
+            data: {
+                email: email,
+            }           
+            })
+    } 
+}
+
 
