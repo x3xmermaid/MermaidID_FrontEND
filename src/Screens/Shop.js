@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View , StyleSheet, ImageBackground, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View , StyleSheet, ImageBackground, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
 import ListDetail from '../Component/Account/listDetail';
 import DetailImage from '../Component/Account/imageDetail';
 import Accountheader from '../Components/Header/AccountHeader';
@@ -200,7 +200,8 @@ const style = StyleSheet.create({
 
 const mapStateToProps = ( state ) => {
     return {
-        store: state.store
+        store: state.store,
+        login: state.login
     }
 }
 
