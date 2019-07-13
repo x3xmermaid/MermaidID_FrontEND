@@ -1,8 +1,8 @@
 import axios from 'axios'
 // import console = require('console');
 
-export const fetchUser = () =>{
-    let link = `https://mermaidid.herokuapp.com/mqb/tb_user?where=tb_user+id_user+2`
+export const fetchUser = (id_user) =>{
+    let link = `https://mermaidid.herokuapp.com/mqb/tb_user?where=tb_user+id_user+`+id_user
     // let link = `http://192.168.100.5:3001/manual/cart`
     console.log(link)
     return {

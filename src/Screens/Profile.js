@@ -15,7 +15,7 @@ class Profile extends Component {
         if(this.props.login.isLogin === false){
             this.props.navigation.navigate('Login')
         }else{
-        this.props.dispatch(fetchUser())
+        this.props.dispatch(fetchUser(this.props.login.user[0].id_user))
         }
     }
 
