@@ -67,11 +67,7 @@ class CarouselView extends Component {
                      itemWidth={deviceWidth}
                     autoplay={true}
                     autoplayInterval={7000}
-                    // //autoplayDelay={1000}
-                    // layout={'default'}
                     loop={true}
-                    // //containerCustomStyle={style.carouselView}
-                    // //contentContainerStyle={style.carouselView}
                      horizontal={true}
                     onSnapToItem={(index) => this.setState({ activeSlide: index }) }
                     renderItem={this.renderItem}

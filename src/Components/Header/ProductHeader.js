@@ -9,7 +9,7 @@ class ProductHeader extends Component {
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
                     <View style={{flex:2}}>
-                        <TouchableOpacity style={{alignItems:"flex-start", left:15}} onPress={()=>this.navigation.goBack()}>>
+                        <TouchableOpacity style={{alignItems:"flex-start", left:15}} onPress={()=>this.props.navigation.goBack()}>
                             <Icon type='antdesign' name='arrowleft' color='#9fa6b0'/>
                         </TouchableOpacity>
                     </View>
