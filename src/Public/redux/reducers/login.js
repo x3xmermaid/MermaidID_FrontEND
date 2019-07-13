@@ -55,10 +55,10 @@ const loginReducer = function(state=initialState, action){
             if(action.payload.data.data !== undefined){
               Login2 = true
             }
-            return  {...state, fetching:false, verify:action.payload.data.data, isLogin:Login2};
+            return  {...state, fetching:false, user:action.payload.data.result, isLogin:Login2};
             break;
         case "LOGIN_USER_REJECTED":
-            return  {...state, fetching:false, verify: action.payload};
+            return  {...state, fetching:false, user: action.payload};
             break;
         default:
             break;
