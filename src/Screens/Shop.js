@@ -15,9 +15,14 @@ class Shop extends Component {
         this.props.dispatch(fetchStore())
     }
 
-    componentDidMount() {
-        this.getStore()
+    componentDidMount(){
+        if(this.props.login.isLogin === false){
+            this.props.navigation.navigate('Login')
+        }else{
+            this.getStore()
+        }
     }
+
     render() {
         console.log(this.props.store.store.store_name)
         let storeName = this.props.store.store.store_name
@@ -25,7 +30,7 @@ class Shop extends Component {
         return(
             <View>
                 <Accountheader 
-                    buyPress={()=>navigate('Profile')}
+                    buyPress={()=>this.props.navigation.navigate('Profile')}
                 />
                 <View style={style.parentView}>
                     <ScrollView  showsVerticalScrollIndicator={false}>
@@ -200,7 +205,8 @@ const style = StyleSheet.create({
 
 const mapStateToProps = ( state ) => {
     return {
-        store: state.store
+        store: state.store,
+        login: state.login 
     }
 }
 

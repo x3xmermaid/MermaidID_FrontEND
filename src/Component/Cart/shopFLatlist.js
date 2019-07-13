@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {TouchableOpacity, View , Text, StyleSheet, Dimensions, ImageBackground, FlatList, SectionList, navigation} from 'react-native'
 import {shop, Product} from '../../Assets/dummy'
 import {CheckBox} from 'react-native-elements'
+import { withNavigation } from 'react-navigation'
 import FlatItem from './itemFlatlist'
 import {connect} from 'react-redux'
 import {fetchCart} from '../../Public/redux/action/cart'
@@ -12,11 +13,11 @@ class ShopFlatlist extends Component{
         super(props);
     }
     componentDidMount(){
-        // if(this.props.login.isLogin === false){
-            // this.props.navigation.navigate('Login')
-        // }else{
+        if(this.props.login.isLogin === false){
+            this.props.navigation.navigate('Login')
+        }else{
             this.getData()
-        // }
+        }
 
     }
     getData = () => {
@@ -130,4 +131,4 @@ const mapStateToProps = ( state ) => {
     }
 }
 
-export default connect(mapStateToProps)(ShopFlatlist);
+export default connect(mapStateToProps)(withNavigation(ShopFlatlist));

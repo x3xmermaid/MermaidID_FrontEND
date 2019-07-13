@@ -15,8 +15,12 @@ class Profile extends Component {
         this.props.dispatch(fetchUser())
     }
 
-    componentDidMount() {
-        this.getUser()
+    componentDidMount(){
+        if(this.props.login.isLogin === false){
+            this.props.navigation.navigate('Login')
+        }else{
+            this.getUser()
+        }
     }
 
     render() {
@@ -237,7 +241,8 @@ const style = StyleSheet.create({
 
 const mapStateToProps = ( state ) => {
     return {
-        user: state.user
+        user: state.user,
+        login:state.login
     }
 }
 

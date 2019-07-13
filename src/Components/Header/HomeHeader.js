@@ -19,11 +19,11 @@ class HomeHeader extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1}}>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('AddImage')}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Message')}>
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='mail'/>
                             </TouchableOpacity>
                         </View>
-                        <View style={{flex:1}}>
+                        <View style={{flex:1}} onPress={() => this.props.navigation.navigate('Notification')}>
                             <TouchableOpacity>
                                 <Icon size={25} color='#9fa6b0' type="font-awesome" name='bell'/>
                             </TouchableOpacity>
