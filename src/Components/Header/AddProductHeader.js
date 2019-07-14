@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { withNavigation} from 'react-navigation'
+import { withNavigation } from 'react-navigation'
 
 class AddProductHeader extends Component {
     state= {
@@ -11,13 +11,13 @@ class AddProductHeader extends Component {
     }
 
     render() {
-        const { screenLocation, backPress, rightPress } = this.props;
+        const { screenLocation, backPress, rightPress, productCategory, productName, productimg } = this.props;
         return(
             <View style={styles.header}>
                 <View style={styles.headerComponent}>
                     <View style={{flex:5, alignContent: 'flex-start', flexDirection:'row'}}>
                         <View style={{ flex: 1, margin: 1 }}>
-                            <TouchableOpacity onPress={backPress}>
+                            <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
                                 <Icon size={25} type='antdesign' name='arrowleft' />
                             </TouchableOpacity>
                         </View>
