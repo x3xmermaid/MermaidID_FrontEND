@@ -39,12 +39,12 @@ MermaidID is E-commerce app that you can use for buy or selling item
 
 ### Released APK
 
-- You can Download APK in [here](https://bit.ly/2YC4NLb)
+- If u want to test it out download [here](https://bit.ly/2Jy2aotb)
 
 
 ### RESTFULL API
 
-- If u want look out our api u kan klik [here](https://github.com/x3xmermaid/MermaidID_backEND)
+- curious ? look our api here [here](https://github.com/x3xmermaid/MermaidID_backEND)
 
 
 <p align="center">
