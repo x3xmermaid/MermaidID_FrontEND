@@ -24,7 +24,7 @@ class Shop extends Component {
     }
 
     render() {
-        console.log(this.props.store.store.store_name)
+        // console.log(this.props.store.store.store_name)
         let storeName = this.props.store.store.store_name
         let storeIMG = this.props.store.store.img_store
         return(

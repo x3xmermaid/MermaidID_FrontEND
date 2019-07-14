@@ -25,7 +25,7 @@ import Message from '../Screens/Message';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: Home,
+		Home: AddProduct,
 		Feed: Feed,
 		'Official Store': OfficialStore,
 		Keranjang: Cart,
