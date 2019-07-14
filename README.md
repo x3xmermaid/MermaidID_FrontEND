@@ -28,7 +28,7 @@ https://drive.google.com/open?id=1-sgZdzwQtyIlPHCfaBMe8B5c8yufeRnd
 
 ### Released APK
 
-- If u want to test it out download [here](https://bit.ly/2Jy2aotb)
+- If u want to test it out download [here](https://bit.ly/2LldUgu)
 
 
 ### RESTFULL API
