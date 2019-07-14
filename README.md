@@ -48,7 +48,7 @@ MermaidID is E-commerce app that you can use for buy or selling item
 
 
 <p align="center">
-    <img src="https://drive.google.com/open?id=1-sIUYeZabe1Y6xFLBpfx3nxdJAJTw1xP" width=400 align="center" style="margin-right:20px"/>
+    <img src="https://drive.google.com/file/d/1-sIUYeZabe1Y6xFLBpfx3nxdJAJTw1xP/view" width=400 align="center" style="margin-right:20px"/>
     <img src="https://drive.google.com/open?id=1-h9vHoHi6VMoTRJ1ihOEgvI21BYJbCHa" width=400 align="center" style="margin-right:20px"/>
     <img src="https://drive.google.com/open?id=1-IvjXe7VzWk4Reb-3q3bIdJEll0eb01e" width=400 align="center" style="margin-right:20px"/>
     <img src="https://drive.google.com/open?id=1-BZXnCYNDK_5yZ6rn0g9EYnn_9s6Ud9K" width=400 align="center" style="margin-right:20px"/>
