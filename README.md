@@ -33,28 +33,20 @@ MermaidID is E-commerce app that you can use for buy or selling item
 - Android studio
 - sdk
 
-How to Run :
-
-```sh
-$ git clone https://github.com/x3xmermaid/MermaidID_FrontEND.git
-$ cd MermaidID_FrontEND
-$ npm install
-$ react-native run-android
-```
 ### APK Documentation Video when it Use
 
-<!-- - youtube link [here](https://youtu.be/G-lVh5U-0v4) -->
+<!-- youtube link [here](https://youtu.be/G-lVh5U-0v4) -->
 
 ### Released APK
 
-<!-- - You can Download APK in [here](https://bit.ly/2YC4NLb) -->
+- You can Download APK in [here](https://bit.ly/2YC4NLb)
 
 
-### RESFTULL API APK
+### RESTFULL API
 
-<!-- - If u want look out our api u kan klik [here](https://github.com/x3xmermaid/MermaidID_backEND) -->
+- If u want look out our api u kan klik [here](https://github.com/x3xmermaid/MermaidID_backEND)
 
-### APK Documentation Screenshot when it Use
+<!--### APK Documentation Screenshot when it Use
 <!-- 
 <p align="center">
     <img src="https://raw.githubusercontent.com/AnjasSM/noteApp-beta/master/src/Assets/img/AppDocumentation/Screenshot_2019-07-08-08-29-14-53.png" width=400 align="center" style="margin-right:20px"/>
