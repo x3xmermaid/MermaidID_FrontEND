@@ -28,7 +28,7 @@ class Login extends Component {
         return (
             <View style={styles.mainScreen}>
                 <LoginHeader
-                    backPress={()=>goBack()}
+                    backPress={()=>(this.props.login.isLogin==false) ? navigate('Home') : goBack()}
                     screenLocation='login'
                     rightPress={()=>navigate('Register')}
                 />

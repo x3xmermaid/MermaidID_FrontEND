@@ -3,6 +3,7 @@ import { View,Text, StyleSheet, Dimensions, TouchableOpacity ,Alert} from 'react
 import { Icon } from 'react-native-elements';
 import {postCart} from '../../Public/redux/action/product';
 import {connect} from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
 const widthDim = Dimensions.get('window').width
 const heightDim = Dimensions.get('window').height
@@ -16,17 +17,29 @@ class BottomNav extends Component {
 
     addToCart = () => {
         
-        const id_product = this.props.dataProduct[0].id;
-        const id_user = 1;
-        const qty= 1;
-        const total= 1;
-        const buyed=1;
-        
-    
-        if ( id_product !== '') {
-            //this.props.addNote({ title, note, categoryId })
-            this.props.dispatch(postCart({ id_product, id_user, qty,total,buyed }))
-            alert('added to cart')
+        if (this.props.login.verify == '') {
+            this.props.navigation.navigate('Login')
+
+        } else {
+
+            const id_product = this.props.dataProduct[0].id;
+            const id_user = this.props.login.verify[0].id_user;
+            const qty = 1;
+            const total = 1;
+            const buyed = 1;
+
+
+            if (id_product !== '') {
+
+                this.props.dispatch(postCart({
+                    id_product,
+                    id_user,
+                    qty,
+                    total,
+                    buyed
+                }))
+                alert('added to cart')
+            }
         }
     }
     render() {
@@ -80,8 +93,9 @@ const styles = StyleSheet.create(
 
 const mapStateToProps = ( state ) => {
     return {
-        product:state.product
+        product:state.product,
+        login:state.login
     }
 }
 
-export default connect(mapStateToProps)(BottomNav);
+export default withNavigation(connect(mapStateToProps)(BottomNav));

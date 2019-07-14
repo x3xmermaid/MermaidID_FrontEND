@@ -17,7 +17,7 @@ export const postVerify = (id,password) =>{
 }
 
 export const postLogin = (email) =>{
-    console.log("email :"+email);
+    // console.log("email :"+email);
     let link = `https://mermaidid.herokuapp.com/manual/register`
     return {
         type: 'ADD_USER',
@@ -47,7 +47,7 @@ export const postVerifyLogin = (id,password) =>{
 }
 
 export const postLoginLogin = (email) =>{
-    console.log("email :"+email);
+    // console.log("email :"+email);
     let link = `https://mermaidid.herokuapp.com/manual/login`
     return {
         type: 'LOGIN_USER',

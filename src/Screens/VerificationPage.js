@@ -27,7 +27,7 @@ class VerificationPage extends Component {
     // }
 
     render() {
-        console.log(this.props.login)
+        // console.log(this.props.login)
         return (
             <View style={styles.mainScreen}>
                 <VerificationHeader />

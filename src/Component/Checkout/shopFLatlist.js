@@ -15,7 +15,8 @@ class ShopFlatlist extends Component{
         this.getData()
     }
     getData = () => {
-        this.props.dispatch(fetchCart())
+        // this.props.dispatch(fetchCart())
+        this.props.cart
     }
     renderStore = ({section}) => {
         return (

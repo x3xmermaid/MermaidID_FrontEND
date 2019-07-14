@@ -9,17 +9,36 @@ import {fetchCart} from '../Public/redux/action/cart'
 class Cart extends Component {
     constructor(props){
         super(props);
+        console.log('props cart jalan')
     }
     componentDidMount(){
-        if(this.props.login.isLogin === false){
-            this.props.navigation.navigate('Login')
-        }else{
-            this.getData()
-        }
+        
+       
+        this.subs=[
+            this.props.navigation.addListener('willFocus', () => {
+                if(this.props.login.isLogin === false){
+                    this.props.navigation.navigate('Login')
+                    
+                }else{
+                    //this.getData()
+                    console.log('get cart jalan')
+                    this.getData()
+                   
+                }
+                
+            }) 
+        ]
+         
+    }
+    componentWillUnmount(){
+        this.subs.forEach(sub => {
+            sub.remove()
+        })
     }
     getData = () => {
         // if(this.prop)
         this.props.dispatch(fetchCart(this.props.login.verify[0].id_user))
+        console.log('get cart jalan')
     }
     render() {
         return(

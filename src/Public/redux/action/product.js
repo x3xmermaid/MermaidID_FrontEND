@@ -12,10 +12,10 @@ export const getProduct = () => {
 }
 
 export const getWishlist = (id_user) => {
-    id_user==undefined ? 1 :  id_user
+    id_user==undefined ? 0 :  id_user
     return {
         type:'GET_WISHLIST',
-        payload:axios.get(`https://mermaidid.herokuapp.com/mqb/tb_product?join=tb_store+id_store+id_store+tb_wishlist+id_product+id_product&where=tb_wishlist+id_user+1`)
+        payload:axios.get(`https://mermaidid.herokuapp.com/mqb/tb_product?join=tb_store+id_store+id_store+tb_wishlist+id_product+id_product&where=tb_wishlist+id_user+${id_user}`)
     }
 }
 

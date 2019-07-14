@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
+import {connect} from 'react-redux';
 import {withNavigation} from 'react-navigation';
 
 class HomeHeader extends Component {
@@ -14,7 +15,11 @@ class HomeHeader extends Component {
                     <View style={styles.iconList}>
                         <View style={{flex:1}}>
                             <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Wishlist')}>
+                            onPress={() => 
+                            this.props.login.verify== ''
+                            ? this.props.navigation.navigate('Login')
+                            : this.props.navigation.navigate('Wishlist')
+                            }>
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='heart'/>
                             </TouchableOpacity>
                         </View>
@@ -71,4 +76,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default withNavigation(HomeHeader);
+const mapStateToProps = ( state ) => {
+    return {
+        login:state.login
+    }
+}
+
+export default withNavigation(connect(mapStateToProps)(HomeHeader));

@@ -26,13 +26,15 @@ import OfficialStore from '../Screens/OfficialStore';
 import RegisterAddProfile from '../Screens/RegisterPage/RegisterAddProfile';
 import Notification from '../Screens/Notif';
 import Message from '../Screens/Message';
+import { connect } from 'react-redux';
+
 
 const BottomNavigation = createBottomTabNavigator(
 	{
 		Home: Home,
 		Feed: Feed,
 		'Official Store': UnderDevelopment,
-		Cart: Cart,
+		Cart:Cart,
 		Account: Profile,
 		
 	},
@@ -102,5 +104,10 @@ const RootNavigator = createStackNavigator(
 		headerMode:'none',
 	}
 )
+const mapStateToProps = ( state ) => {
+    return {
+        login:state.login
+    }
+}
 
 export default createAppContainer(RootNavigator);

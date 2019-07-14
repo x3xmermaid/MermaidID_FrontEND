@@ -27,7 +27,7 @@ const loginReducer = function(state=initialState, action){
             return  {...state, fetching:true};
             break;
         case "VERIFY_FULFILLED":
-            console.log(action.payload.data.data)
+            // console.log(action.payload.data.data)
             let Login = false
             if(action.payload.data.data !== undefined){
               Login = true
@@ -41,7 +41,7 @@ const loginReducer = function(state=initialState, action){
             return  {...state, fetching:true};
             break;
         case "VERIFY_LOGIN_FULFILLED":
-            return  {...state, fetching:false, user:action.payload.data.data};
+            return  {...state, fetching:false, user:action.payload.data.data, isLogin:true};
             break;
         case "VERIFY_LOGIN_REJECTED":
             return  {...state, fetching:false, user: action.payload};
@@ -50,7 +50,7 @@ const loginReducer = function(state=initialState, action){
             return  {...state, fetching:true};
             break;
         case "LOGIN_USER_FULFILLED":
-            console.log(action.payload.data.data)
+            // console.log(action.payload.data.data)
             let Login2 = false
             if(action.payload.data.data !== undefined){
               Login2 = true

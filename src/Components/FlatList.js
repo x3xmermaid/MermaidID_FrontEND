@@ -42,11 +42,6 @@ class CardFlatList extends Component {
             renderItem={this.renderItem}
             refreshing={this.props.product.isLoading}
             onRefresh={this.getProduct}
-            // refreshControl={<RefreshControl
-            //     refreshing={this.props.product.isLoading}
-            //     onRefresh={()=>this.getProduct()}
-            //     />
-            // }
             numColumns={2}
             keyExtractor={this._keyExtractor}
             />

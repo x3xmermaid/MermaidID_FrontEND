@@ -1,24 +1,27 @@
 import React,{Component} from 'react';
-import {View,Text,TouchableOpacity,FlatList,ScrollView,StyleSheet} from 'react-native';
-import {Card,SearchBar,Button, Image} from 'react-native-elements';
-import {Product,wishlistdata} from '../Assets/dummy';
+import {View,Text,TouchableOpacity,Image,FlatList,ScrollView,StyleSheet} from 'react-native';
+import {Card,SearchBar,Button} from 'react-native-elements';
+//import {Product,wishlistdata} from '../Assets/dummy';
 import {connect} from 'react-redux';
 import {getWishlist} from '../Public/redux/action/product';
+import { withNavigation } from 'react-navigation';
 
 class CardWishlist extends Component {
     constructor(props){
         super(props);
         this.state={
-            //wishlistProduct:Product
+            wishlistEmpty:[1]
         }
+        console.log(this.props.login.verify[0].id_user)
     }
 
-    getDataWishlist = () => {
-        this.props.dispatch(getWishlist())
+    getDataWishlist = (id_user) => {
+        this.props.dispatch(getWishlist(id_user))
+        console.log(this.props.product.wishlistData)
     }
 
     componentDidMount(){
-        this.getDataWishlist();
+        this.getDataWishlist(this.props.login.verify[0].id_user);
     }
 
    
@@ -48,7 +51,7 @@ class CardWishlist extends Component {
                     style={{height:18,width:18}}
                     
                     />
-                        <Text style={styles.locationName}>Jakarta</Text>
+                        <Text style={styles.locationName}>{item.store_name}</Text>
                         </View>
                     </View>
                     
@@ -71,11 +74,31 @@ class CardWishlist extends Component {
                 </Card>
         </View>
     )
+
+    renderNotFound = () => (
+        <View style={{flex:1,backgroundColor:'transparent',justifyContent:'center'}}>
+            <Image
+            source={{uri:'https://ecs7.tokopedia.net/assets-tokopedia-lite/v2/atreus/production/5d8ee5c7.png'}}
+            style={{width:170,height:102,alignSelf:'center',marginTop:100}}
+            />
+            <Text
+            style={{fontSize:15,color:'#B6B6B6',fontWeight:'bold',alignSelf:'center',paddingVertical:15}}>Wishlist Anda masih kosong </Text>
+            <Button
+            title='Mulai Cari Produk'
+            buttonStyle={{backgroundColor:'#03AC0E',borderRadius:5}}
+            containerStyle={{width:160,height:40,alignSelf:'center'}}
+            onPress={() => this.props.navigation.navigate('Home')}
+            
+            
+            />
+
+        </View>
+    )
     
     render(){
-        if(wishlistdata.length % 2 ==1){
-            //wishlistdata.shift(0);
-        }
+        // if(wishlistdata.length % 2 ==1){
+        //     //wishlistdata.shift(0);
+        // }
         return(
             <View>
             <View style={{marginTop:55}}>
@@ -87,14 +110,20 @@ class CardWishlist extends Component {
                  inputContainerStyle={{backgroundColor:'#F6F6F6'}}
                  inputStyle={{fontSize:17,marginTop:4 }}
                  
+                 
                 />
             </View>
             <View style={{flex:1,flexDirection:'row',alignContent:'flex-start'}}>
             <FlatList
             columnWrapperStyle={{justifyContent:'flex-start' }}
-            //data={this.state.wishlistProduct.filter(Products => wishlistdata.indexOf(Products.id) !== -1)}
-            data={this.props.product.wishlistData}
-            renderItem={this.renderItem} 
+            data={
+              this.props.product.wishlistData !== 'empty'
+            ? this.props.product.wishlistData
+            : this.state.wishlistEmpty
+                }
+            renderItem={this.props.product.wishlistData =='empty' 
+            ? this.renderNotFound
+            :this.renderItem} 
             numColumns={2}
             keyExtractor={this._keyExtractor}
             horizontal={false}
@@ -112,11 +141,12 @@ class CardWishlist extends Component {
 
 const mapStateToProps = ( state ) => {
     return {
-        product:state.product
+        product:state.product,
+        login:state.login
     }
 }
 
-export default connect(mapStateToProps)(CardWishlist);
+export default withNavigation(connect(mapStateToProps)(CardWishlist));
 
 const styles=StyleSheet.create ({
     ImageIconStyle: {
