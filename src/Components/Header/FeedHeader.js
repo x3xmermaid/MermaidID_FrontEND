@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, TextInput, StyleSheet, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { withNavigation} from 'react-navigation'
 class FeedHeader extends Component {
     render() {
         return(
@@ -25,17 +26,17 @@ class FeedHeader extends Component {
                     </View> 
                     <View style={styles.iconList}>
                         <View style={{flex:1}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Wishlist')}>
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='heart'/>
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Message')}>
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='mail'/>
                             </TouchableOpacity>
                         </View>
                         <View style={{flex:1}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Notification')}>
                                 <Icon size={25} color='#9fa6b0' type="font-awesome" name='bell'/>
                             </TouchableOpacity>
                         </View>
@@ -86,4 +87,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default FeedHeader;
+export default withNavigation(FeedHeader);

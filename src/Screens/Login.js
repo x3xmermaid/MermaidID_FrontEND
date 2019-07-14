@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet, Alert } from 'react-native';
 import LoginHeader from '../Components/Header/LoginHeader';
 import {connect} from 'react-redux'
 import {postLogin, postLoginLogin} from '../Public/redux/action/login'
@@ -18,8 +18,22 @@ class Login extends Component {
 
     _login = () => {
         // console.log(hihay)
-        this.props.dispatch(postLoginLogin(this.state.email))
-        this.props.navigation.navigate('VerificationPage')
+        const emailVer = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
+        if(this.state.email !=='') {
+            if(this.state.email.length > 5) {
+                if(emailVer.test(this.state.email)) {
+                    this.props.dispatch(postLoginLogin(this.state.email))
+                    this.props.navigation.navigate('VerificationPage')
+                } else {
+                Alert.alert(`Wrong email format`)
+                }
+                
+            } else {
+                Alert.alert(`Email must more than 5 character`)
+            }
+        } else {
+            Alert.alert(`Email can't Empty`)
+        }
     }
 
     render() {
@@ -41,6 +55,7 @@ class Login extends Component {
                         <TextInput 
                             allowFontScaling
                             maxLength={40}
+                            placeholder='Input Email'
                             selectionColor='#42b549'
                             style={{width: winWidth*0.85}}
                             onChangeText={(text) => this.setState({email:text})}

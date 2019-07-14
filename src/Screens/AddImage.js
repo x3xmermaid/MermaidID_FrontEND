@@ -8,9 +8,19 @@ export default class App extends Component {
         super(props);
         this.state = {
             filePath: {},
+            productName: '',
+            categoryName: ''
         };
     }
-
+    componentDidMount(){
+        const {navigation} = this.props;
+        const product = navigation.getParam('name', 'null')
+        const category = navigation.getParam('category', 'null')
+        this.setState({
+            productName: product,
+            categoryName: category
+        })
+    }
     chooseFile = () => {
         let options = {
             title: 'Select Image',
@@ -24,7 +34,7 @@ export default class App extends Component {
         };
 
         ImagePicker.showImagePicker(options, response => {
-            console.log('Response = ', response);
+            // console.log('Response = ', response);
             if (response.didCancel) {
                 console.log('User cancelled image picker');
                 alert('User cancelled image picker');
@@ -94,6 +104,9 @@ export default class App extends Component {
     };
 
     render() {
+        this.props.imageProduct = this.state.filePath.uri
+        inputProductName = this.props.addProduct
+        inputCategory = this.props.addCategory
         return (
             <View style={{flex:1, flexDirection: 'column', backgroundColor: '#fff', alignItems: 'center'}}>
                 <AddProductheader

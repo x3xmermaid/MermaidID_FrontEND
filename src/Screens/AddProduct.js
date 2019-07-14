@@ -6,15 +6,15 @@ import RadioButton from '../Components/RadioButton';
 const options = [
     {
         key: 'pay',
-        text: 'Most High Pay',
+        text: 'Hewan',
     },
     {
         key: 'performance',
-        text: 'Most Perfomance',
+        text: 'Mainan',
     },
     {
         key: 'aToZ',
-        text: 'A - Z',
+        text: 'Pakaian',
     },
     {
         key: 'zToA',
@@ -34,11 +34,16 @@ class AddProduct extends Component {
     }
 
     render() {
+        addproduct = this.state.productName
+        addCategory = this.state.categoryName
         return (
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
                 <AddProductHeader
                     backPress={()=>this.props.navigation.goBack()}
-                    rightPress={()=>this.props.navigation.navigate('AddImage')}
+                    rightPress={()=>this.props.navigation.navigate('AddImage', {
+                        name: this.state.productName,
+                        category: this.state.categoryName 
+                    })}
                     screenLocation='addProduct'
                 />
                 <View style={{flex:1, position: 'absolute', width: '90%', margin:20}}>

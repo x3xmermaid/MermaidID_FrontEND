@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Dimensions, Image, StyleSheet, Alert } from 'react-native';
 import { Input } from 'react-native-elements';
 import VerificationHeader from '../Components/Header/VerificationHeader';
 import {connect} from 'react-redux'
@@ -18,13 +18,15 @@ class VerificationPage extends Component {
 
     _Verif=()=> {
         const { text } = this.state;
-        this.props.dispatch(postVerify(this.props.login.user,text))
-        this.props.navigation.navigate('Home')
+        const numbers = /[0-9]/g;
+        if(numbers.test(text) && text.length == 6) {
+            this.props.dispatch(postVerify(this.props.login.user))
+            this.props.navigation.navigate('Home')
+              
+        } else {
+            Alert.alert(`input must be a number & must be 6 character`)
+        }
     }
-
-    // componentDidMount = () => {
-    //     this._Verif()
-    // }
 
     render() {
         // console.log(this.props.login)
@@ -46,7 +48,7 @@ class VerificationPage extends Component {
                         style={{margin: 20 }}
                     />
                     <TouchableOpacity onPress={()=>this._Verif()} style={{alignItems:'center' , borderColor:'Green', borderStyle:"solid", backgroundColor: '#42b549', borderRadius: 5, height: 50, margin:20, width: '80%'}}>
-                            <Text style={{fontSize: 20, color: 'white', marginTop: 8}}>Selanjutnya</Text>
+                        <Text style={{fontSize: 20, color: 'white', marginTop: 8}}>Selanjutnya</Text>
                     </TouchableOpacity>
                     <Text style={{color: 'green'}}>Kirim Ulang Kode</Text>
                 </View>

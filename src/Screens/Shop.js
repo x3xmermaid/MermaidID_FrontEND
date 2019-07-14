@@ -5,6 +5,7 @@ import DetailImage from '../Component/Account/imageDetail';
 import Accountheader from '../Components/Header/AccountHeader';
 import {connect} from 'react-redux'
 import { fetchStore } from '../Public/redux/action/store';
+import { withNavigation } from 'react-navigation';
 // import console = require('console');
 
 class Shop extends Component {
@@ -24,7 +25,7 @@ class Shop extends Component {
     }
 
     render() {
-        console.log(this.props.store.store.store_name)
+        // console.log(this.props.store.store.store_name)
         let storeName = this.props.store.store.store_name
         let storeIMG = this.props.store.store.img_store
         return(
@@ -85,13 +86,16 @@ class Shop extends Component {
                         <Text style={[style.boldText, { marginLeft:10}]}>
                         {"Produk"}</Text>
                     <TouchableOpacity>
-                        <View style={[style.cardBox, {borderRadius:10, elevation:1, backgroundColor:'#fafafa'}]}>
-                                <Text style={{textAlign:'center', color:'#d1cfcf', fontWeight:'bold'}}>{"+ Tambah Produk"}</Text>
+                        <View 
+                            onPress={() => this.props.navigation.navigate('AddProductDetail')}
+                            style={[style.cardBox, {borderRadius:10, elevation:1, backgroundColor:'#fafafa'}]}
+                        >
+                            <Text style={{textAlign:'center', color:'#d1cfcf', fontWeight:'bold'}}>{"+ Tambah Produk"}</Text>
                         </View>
                     </TouchableOpacity>
                         <ListDetail textData={{
                             Text2: "Pengaturan Produk",
-                            Text3: "Selesaikan kelengkapan detai produk",
+                            Text3: "Selesaikan kelengkapan detail produk",
                             image: 1
                         }}/>
                 <View style={style.line}/>
@@ -210,4 +214,4 @@ const mapStateToProps = ( state ) => {
     }
 }
 
-export default connect (mapStateToProps)(Shop);
+export default connect (mapStateToProps)(withNavigation(Shop));

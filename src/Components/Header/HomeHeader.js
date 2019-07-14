@@ -14,12 +14,16 @@ class HomeHeader extends Component {
                     </View> 
                     <View style={styles.iconList}>
                         <View style={{flex:1}}>
+<<<<<<< HEAD
                             <TouchableOpacity
                             onPress={() => 
                             this.props.login.verify== ''
                             ? this.props.navigation.navigate('Login')
                             : this.props.navigation.navigate('Wishlist')
                             }>
+=======
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Wishlist')}>
+>>>>>>> d37866d9f5f2cf86305ee2d6a2b5548218204493
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='heart'/>
                             </TouchableOpacity>
                         </View>

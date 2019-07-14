@@ -18,8 +18,8 @@ class AddressCard extends Component{
         this.getUser()
     }
     render(){
-        console.log("this.props.user")
-        console.log(this.props.user)
+        // console.log("this.props.user")
+        // console.log(this.props.user)
         // let text = "Asrama putri ayu Jl. Nusa indah no 100 perumnas condong catur kec. depok kab.sleman yogyakarta, Depok, Kab. Sleman 55283, 6282391082250"
         return(
             <View style={style.shadow}>
