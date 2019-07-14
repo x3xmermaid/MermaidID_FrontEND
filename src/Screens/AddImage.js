@@ -104,6 +104,9 @@ export default class App extends Component {
     };
 
     render() {
+        this.props.imageProduct = this.state.filePath.uri
+        inputProductName = this.props.addProduct
+        inputCategory = this.props.addCategory
         return (
             <View style={{flex:1, flexDirection: 'column', backgroundColor: '#fff', alignItems: 'center'}}>
                 <AddProductheader

@@ -37,9 +37,6 @@ class AddProductDetail extends Component {
             } else if (response.error) {
                 console.log('ImagePicker Error: ', response.error);
                 alert('ImagePicker Error: ' + response.error);
-            } else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton);
-                alert(response.customButton);
             } else {
                 let source = response;
                 this.setState({
@@ -50,21 +47,31 @@ class AddProductDetail extends Component {
     };
 
     _Combine=() => {
-        const {productName, productPrice, productDescription, productStock} = this.state
+        const {productName, productPrice, productDescription, productStock, filePath} = this.state
         if( productName !== '' && productPrice !== '' && productDescription !== '' && productStock !== '') {
-            let data = {
-                'productName': productName,
-                'productPrice': productPrice,
-                'productDescription': productDescription,
-                'productStock': productStock
+            if(filePath.uri !== '') {
+                let data = {
+                    'productName': productName,
+                    'productPrice': productPrice,
+                    'productDescription': productDescription,
+                    'productStock': productStock,
+                    'productImg' : filePath.uri
+                }
+                this.props.dispatch(addProduct(data));
+                this.props.navigation.navigate('Home');
+                this.setState({productName: '', productDescription:'', productPrice:'', productStock:'', filePath: {}})
+            } else {
+                Alert.alert('Photo cannot empty')
             }
-            this.props.dispatch(addProduct(data));
-            this.props.navigation.navigate('Home');
-            this.setState({productName: '', productDescription:'', productPrice:'', productStock:''})
         } else {
             Alert.alert("Input cannot empty")
         }
     }
+
+    componentDidMount= () => {
+        this._Combine()
+    }
+
     render() {
         return (
             <View style={{flex:1,backgroundColor:'#FFF',alignItems:'flex-start',flexDirection:'column'}}>
@@ -90,7 +97,7 @@ class AddProductDetail extends Component {
                             selectionColor='#42b549' 
                             style={{width:'95%',borderBottomColor:'#42b549', borderBottomWidth:2}}
                             onChangeText={(text) => {this.setState({productName: text})}}
-                        />
+                        >{inputProductName}</TextInput>
                     </View>
                     <View style={{flex:1}}>
                     <Text>Harga Produk</Text>

@@ -13,8 +13,7 @@ class HomeHeader extends Component {
                     </View> 
                     <View style={styles.iconList}>
                         <View style={{flex:1}}>
-                            <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Wishlist')}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Wishlist')}>
                                 <Icon size={25} color='#9fa6b0' type='entypo' name='heart'/>
                             </TouchableOpacity>
                         </View>

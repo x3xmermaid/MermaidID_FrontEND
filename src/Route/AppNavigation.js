@@ -20,7 +20,7 @@ import AddStorePage from '../Screens/RegisterPage/AddStorePage';
 import VerificationPage from '../Screens/VerificationPage';
 import OfficialStore from '../Screens/OfficialStore';
 import RegisterAddProfile from '../Screens/RegisterPage/RegisterAddProfile';
-import Notification from '../Screens/Notif';
+import Notification from '../Screens/Notification';
 import Message from '../Screens/Message';
 
 const BottomNavigation = createBottomTabNavigator(
@@ -47,11 +47,11 @@ const BottomNavigation = createBottomTabNavigator(
 					return (
 						<Icon name="check-square" size={23} style={{color: tintColor, paddingTop: 5}}/>
 					);
-				}else if (routeName === 'Cart') {
+				}else if (routeName === 'Cart' || routeName === 'Login') {
 					return (
 						<Icon name="shopping-cart" size={23} style={{color: tintColor, paddingTop: 5}}/>
 					);
-				}else if (routeName === 'Account') {
+				}else if (routeName === 'Account'||routeName === 'Login') {
 					return (
 						<Icon name="user" size={23} style={{color: tintColor, paddingTop: 5}}/>
 					);
@@ -59,8 +59,8 @@ const BottomNavigation = createBottomTabNavigator(
 			},
 		}),
 		tabBarOptions: {
-			activeTintColor: '#2d6430',
-			inactiveTintColor: '#263238',
+			activeColor: '#57B549',
+			inactiveColor: '#263238',
 			keyboardHidesTabBar: true
 		},
 	}
