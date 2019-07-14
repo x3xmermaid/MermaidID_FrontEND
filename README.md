@@ -24,7 +24,7 @@ MermaidID is E-commerce app that you can use for buy or selling item
 
 ### APK Documentation Video when it Use
 
-<!-- youtube link [here](https://youtu.be/G-lVh5U-0v4) -->
+https://drive.google.com/open?id=1-sgZdzwQtyIlPHCfaBMe8B5c8yufeRnd
 
 ### Released APK
 
