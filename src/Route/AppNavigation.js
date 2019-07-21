@@ -31,7 +31,7 @@ import { connect } from 'react-redux';
 
 const BottomNavigation = createBottomTabNavigator(
 	{
-		Home: AddProduct,
+		Home: Home,
 		Feed: Feed,
 		'Official Store': UnderDevelopment,
 		Cart:Cart,

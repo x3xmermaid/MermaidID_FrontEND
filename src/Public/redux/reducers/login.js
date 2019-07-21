@@ -27,7 +27,7 @@ const loginReducer = function(state=initialState, action){
             return  {...state, fetching:true};
             break;
         case "VERIFY_FULFILLED":
-            // console.log(action.payload.data.data)
+            console.log(action.payload.data.data)
             let Login = false
             if(action.payload.data.data !== undefined){
               Login = true

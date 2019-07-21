@@ -17,10 +17,14 @@ class Shop extends Component {
     }
 
     componentDidMount(){
+        
+    }
+
+    componentWillMount(){
         if(this.props.login.isLogin === false){
             this.props.navigation.navigate('Login')
         }else{
-            this.getStore()
+            this.getStore(this.props.store)
         }
     }
 

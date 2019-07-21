@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import{ View, Text, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
 import {Input, CheckBox} from 'react-native-elements';
 import BasicHeader from '../../Components/Header/BasicHeader';
+import {connect} from 'react-redux'
+import {addStore} from '../../Public/redux/action/store'
 
 class AddStoreDetail extends Component {
     constructor(props) {
@@ -14,21 +16,21 @@ class AddStoreDetail extends Component {
         };
     }
 
-    // _addStore = () => {
-    //     const { storeName, storeLocation, postalCode } = this.state;
-    //     if (storeName !== '' && storeLocation !== '' && postalCode !== '') {
-    //         let data = {
-    //             'storName': storeName,
-    //             'storeLocation':storeLocation,
-    //             'postalCode':postalCode
-    //         }
-    //         this.props.dispatch(addStore(data));
-    //         this.props.navigation.navigate('HomeNote');
-    //         this.setState({storeName='', storeLocation='',postalCode=''})
-    //     } else {
-    //         Alert.alert("Input Field cannot empty")
-    //     }
-    // }
+    _verif = () => {
+        const { storeName, storeLocation, postalCode } = this.state;
+        if (storeName !== '' && storeLocation !== '' && postalCode !== '') {
+            let data = {
+                'storName': storeName,
+                'storeLocation':storeLocation,
+                'postalCode':postalCode
+            }
+            this.props.dispatch(addStore(data, this.props.login.verify[0].id_user));
+            this.props.navigation.navigate('HomeNote');
+            this.setState({storeName:'', storeLocation:'',postalCode:''})
+        } else {
+            Alert.alert("Input Field cannot empty")
+        }
+    }
 
     // componentDidMount=() => {
     //     this._addStore()
@@ -132,4 +134,13 @@ const styles = StyleSheet.create(
     }
 )
 
-export default AddStoreDetail;
+const mapStateToProps = ( state ) => {
+    return {
+        product:state.product,
+        cart: state.cart,
+        login: state.login,
+        store: state.store
+    }
+}
+
+export default connect(mapStateToProps)(AddStoreDetail);

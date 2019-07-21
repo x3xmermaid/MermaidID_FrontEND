@@ -36,10 +36,19 @@ export const deleteStore = (id) =>{
 }
 
 export const addStore = (data) => {
-    let link= ''
+    let link= 'https://mermaidid.herokuapp.com/mqb/tb_store'
     return {
-        type: 'ADD_CATEGORY',
-        payload: axios.post(link)
+        type: 'ADD_STORE',
+        payload: axios.post({
+            method: 'POST',
+            url: link,
+            data: {
+                store_name: data.storeName,
+                location: data.storeLocation,
+                pos_code: data.postalCode,
+                img_store: 'https://res.cloudinary.com/dvyonb6zt/image/upload/v1563097699/Product/toped_hfullm.png',
+            }
+        })
     }
 }
 

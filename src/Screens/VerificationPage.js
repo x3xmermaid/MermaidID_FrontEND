@@ -20,7 +20,7 @@ class VerificationPage extends Component {
         const { text } = this.state;
         const numbers = /[0-9]/g;
         if(numbers.test(text) && text.length == 6) {
-            this.props.dispatch(postVerify(this.props.login.user))
+            this.props.dispatch(postVerify(this.props.login.user, text))
             this.props.navigation.navigate('Home')
               
         } else {
@@ -29,7 +29,7 @@ class VerificationPage extends Component {
     }
 
     render() {
-        // console.log(this.props.login)
+        console.log(this.props.login)
         return (
             <View style={styles.mainScreen}>
                 <VerificationHeader />
